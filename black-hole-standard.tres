@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://8mhs6ln70emo"]
+
+[ext_resource type="Shader" path="res://black-hole.gdshader" id="1_tebu2"]
+
+[sub_resource type="Curve" id="Curve_3x1ge"]
+min_value = -1.0
+_data = [Vector2(0, 0.0363637), 0.0, 0.0, 0, 0, Vector2(0.088729, -0.472727), 0.0, 0.0, 0, 0, Vector2(0.251799, 0.527273), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_yepks"]
+width = 2048
+curve = SubResource("Curve_3x1ge")
+
+[resource]
+shader = ExtResource("1_tebu2")
+shader_parameter/curve = SubResource("CurveTexture_yepks")
+shader_parameter/strength = null

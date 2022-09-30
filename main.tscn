@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://clnoc66ahop6x"]
+[gd_scene load_steps=4 format=3 uid="uid://jn7b5gdtam5b"]
+
+[ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://space.jpg" id="1_4rffp"]
+[ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://black.png" id="2_bc5qs"]
+[ext_resource type="Material" uid="uid://8mhs6ln70emo" path="res://black-hole-standard.tres" id="2_jgif0"]
 
 [node name="Node2d" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(537, 422)
+texture = ExtResource("1_4rffp")
+
+[node name="blackhole" type="Sprite2D" parent="."]
+material = ExtResource("2_jgif0")
+position = Vector2(347, 421)
+scale = Vector2(0.396, 0.396)
+texture = ExtResource("2_bc5qs")
+
+[node name="black" type="Sprite2D" parent="blackhole"]
+position = Vector2(2.52539, 0)
+scale = Vector2(0.329794, 0.329794)
+texture = ExtResource("2_bc5qs")
