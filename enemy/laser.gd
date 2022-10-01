@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export
 var speed: float = 1000;
 
+@onready var ImpactSoundScene = load("res://impact_sound.tscn")
+
 func _physics_process(delta):
 	velocity = Vector2(speed, 0).rotated(self.rotation)
 	# very janky solution to make black holes destroy lasers
@@ -14,6 +16,7 @@ func _physics_process(delta):
 	if collision != null:
 		if collision.get_collider().get("health") != null:
 			collision.get_collider().set("health", collision.get_collider().get("health") - 1)
+
 		queue_free()
 
 func _on_lifespan_timer_timeout():

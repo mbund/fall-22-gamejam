@@ -53,8 +53,9 @@ float fbmCloud(vec2 input, float minimum){
 //}
 
 void fragment() {
-	vec2 uv = UV * (SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y);
-	uv.x *= 1.5;
+	vec2 ps = SCREEN_PIXEL_SIZE;
+    vec2 ratio = (ps.x > ps.y) ? vec2(ps.y / ps.x, 1) : vec2(1, ps.x / ps.y);
+	vec2 uv = UV * ratio;
 	vec3 col = fbmCloud((uv+pos*0.001)*7.0, 0.1) * vec3(0.2, 0.2, 0.4) * 0.5;
 	col += fbmCloud((uv+pos*0.0005)*7.0+vec2(10,20), 0.1) * vec3(0.2, 0.4, 0.2) * 0.5;
 	col += fbmCloud((uv+pos*0.00025)*7.0+vec2(-20,10), 0.1) * vec3(0.4, 0.2, 0.2) * 0.5;

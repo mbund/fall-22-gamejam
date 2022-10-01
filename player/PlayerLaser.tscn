@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fdaxj7pec53w" path="res://player/player_laser.png" id="2_hgcfk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gcra"]
-radius = 1.0
+radius = 3.33333
 height = 12.0
 
 [node name="PlayerLaser" type="CharacterBody2D"]
@@ -20,7 +20,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_hgcfk")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(6, 0)
+position = Vector2(6, 1)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_8gcra")

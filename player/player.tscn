@@ -57,13 +57,11 @@ wait_time = 0.33
 one_shot = true
 autostart = true
 
-<<<<<<< HEAD
 [node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_4hsjx")
 
 [node name="ThrusterPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ktrv5")
 volume_db = -7.523
-=======
+
 [node name="target" type="Marker2D" parent="."]
->>>>>>> 30a219b213f3915dc50415b6f99ce4f0d75f3bba

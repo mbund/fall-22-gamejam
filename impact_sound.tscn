@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm7m5qnf7p5kk"]
+
+[ext_resource type="AudioStream" uid="uid://dv1fkryo71pxb" path="res://assets/sound/successful_hit.ogg" id="1_a6d5f"]
+
+[node name="ImpactSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_a6d5f")
+autoplay = true

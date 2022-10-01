@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://ca6vfnqv5p8mm"
+uid="uid://611hxvicqaqp"
 path="res://.godot/imported/explosionCrunch_000.ogg-4e8353bfd9a2d050473effe9978b9ab5.oggvorbisstr"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/explosionCrunch_000.ogg-4e8353bfd9a2d050473ef
 
 [params]
 
-loop=true
-loop_offset=0
-bpm=0
+loop=false
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
