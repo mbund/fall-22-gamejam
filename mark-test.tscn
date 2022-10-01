@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr1job714slkr"]
+[gd_scene load_steps=9 format=3 uid="uid://dr1job714slkr"]
 
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_2lm05"]
 [ext_resource type="Script" path="res://josh-test.gd" id="1_4d63l"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="4_ch4kl"]
 [ext_resource type="PackedScene" path="res://environment/blackhole/whitehole.tscn" id="6_0lo7a"]
 [ext_resource type="PackedScene" uid="uid://c8krn0l5dwld2" path="res://continuouslaser/continuouslaser.tscn" id="7_gvctv"]
+[ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="8_m8ndf"]
 
 [node name="mark-test" type="Node2D"]
 script = ExtResource("1_4d63l")
@@ -31,3 +32,7 @@ position = Vector2(214, 361)
 position = Vector2(-741, 335)
 
 [node name="continuouslaser" parent="." instance=ExtResource("7_gvctv")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui" parent="CanvasLayer" instance=ExtResource("8_m8ndf")]
