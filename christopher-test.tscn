@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://b0ofqma5mt8na"]
 
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_4rffp"]
-[ext_resource type="Texture2D" path="res://environment/blackhole/black.png" id="2_bc5qs"]
-[ext_resource type="Material" path="res://black-hole-standard.tres" id="2_jgif0"]
+[ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://environment/blackhole/black.png" id="2_bc5qs"]
+[ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="4_bjaii"]
 [ext_resource type="PackedScene" uid="uid://4ayds7oluln3" path="res://enemy/enemy_ship_13.tscn" id="4_s50h2"]
 
 [node name="Node2d" type="Node2D"]
@@ -12,8 +12,6 @@ position = Vector2(537, 422)
 texture = ExtResource("1_4rffp")
 
 [node name="blackhole" type="Sprite2D" parent="."]
-material = ExtResource("2_jgif0")
-position = Vector2(347, 421)
 scale = Vector2(0.396, 0.396)
 texture = ExtResource("2_bc5qs")
 
@@ -24,9 +22,15 @@ texture = ExtResource("2_bc5qs")
 
 [node name="EnemyShip13" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_s50h2")]
 position = Vector2(514, 429)
-rotation = 0.0
-target = NodePath("../Marker2d")
-firing_randomness = 0.05
+target = NodePath("../Sprite2d/Marker2d")
+firing_randomness = 0.1
+firing_cone = 20.0
+turning_speed = 0.2
 
-[node name="Marker2d" type="Marker2D" parent="."]
-position = Vector2(435, -194)
+[node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(798, 565)
+scale = Vector2(4, 4)
+texture = ExtResource("4_bjaii")
+
+[node name="Marker2d" type="Marker2D" parent="Sprite2d"]
+scale = Vector2(0.25, 0.25)

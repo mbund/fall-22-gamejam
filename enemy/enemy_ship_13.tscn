@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://d0h0pdpw4bbs4" path="res://assets/13.png" id="1_68uv4"]
 
 [node name="EnemyShip13" type="CharacterBody2D" node_paths=PackedStringArray("target")]
-rotation = 1.5708
 script = ExtResource("1_0p3ry")
 target = NodePath("")
 
@@ -14,13 +13,14 @@ texture_repeat = 1
 texture = ExtResource("1_68uv4")
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
 polygon = PackedVector2Array(64, -46, 79, 1, 79, 12, 84, 15, 84, 28, 82, 29, 82, 39, 69, 52, 63, 52, 63, 33, 43, 33, 38, 45, 34, 45, 34, 48, 29, 48, 29, 51, 18, 51, 18, 47, -15, 47, -18, 47, -18, 50, -28, 50, -28, 48, -34, 48, -42, 35, -63, 34, -63, 52, -68, 52, -80, 39, -80, 29, -83, 27, -84, 16, -79, 12, -72, -28, -64, -45, -64, -12, -59, -15, -51, -10, -42, -11, -42, -22, -36, -37, -31, -38, -31, -25, -26, -25, -16, -43, -16, -32, -3, -46, 5, -46, 17, -29, 17, -42, 25, -26, 31, -25, 31, -37, 35, -37, 43, -21, 43, -12, 49, -9, 52, -13, 56, -13, 57, -15, 60, -15, 60, -12, 63, -12, 64, -46)
 
 [node name="RightGun" type="Marker2D" parent="."]
-position = Vector2(10, -52)
+position = Vector2(52, -10)
 
 [node name="LeftGun" type="Marker2D" parent="."]
-position = Vector2(-10, -52)
+position = Vector2(52, 10)
 
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.1

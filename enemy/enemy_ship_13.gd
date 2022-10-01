@@ -6,7 +6,7 @@ var target: Marker2D;
 var firing_randomness: float;
 @export
 var firing_cone: float;
-@export
+@export_range(0, 1.0)
 var turning_speed: float;
 
 # true when the last gun fired was the right gun
@@ -24,16 +24,21 @@ var right_gun: Marker2D = $RightGun;
 
 
 func _physics_process(delta):
-	#var marker_vector = target.global_position - global_position;
-	#var marker_direction = atan2(marker_vector.x, marker_vector.y)
-	#print(fmod(rotation - marker_direction, TAU))
-	#rotation = fmod(rotation + angle_movement * delta * turning_speed, TAU);
-	#rotation = fmod(rotation + (rotation - marker_direction) * delta * 0.1, TAU)
-	pass
+	if(target == null): 
+		return;
+	var marker_vector = target.global_position - global_position;
+	var current_direction = Vector2(1, 0).rotated(rotation);
+	#print("marker: ", rad_to_deg(marker_vector.angle()));
+	#print("current: ", rad_to_deg(current_direction.angle()));
+	#rotation = marker_vector.angle();
+	rotation = lerp(rotation, marker_vector.angle(), turning_speed);
 
 func pointing_at_player():
-	var marker_direction = global_position - target.global_position;
-	return abs(atan2(marker_direction.x, marker_direction.y) + rotation) < deg_to_rad(firing_cone);
+	if(target == null):
+		return;
+	var marker_vector = target.global_position - global_position;
+	var current_direction = Vector2(1, 0).rotated(rotation);
+	return marker_vector.angle_to(current_direction) < deg_to_rad(firing_cone);
 
 
 func _on_timer_timeout():
@@ -46,5 +51,5 @@ func _on_timer_timeout():
 	else:
 		laser.position = right_gun.global_position;
 		previous_gun_right = true;
-	laser.rotation = (rotation - PI / 2) + randf_range(-firing_randomness, firing_randomness);
+	laser.rotation = (rotation) + randf_range(-firing_randomness, firing_randomness);
 	add_sibling(laser);
