@@ -1,0 +1,32 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://crdav3r37u8jw"
+path="res://.godot/imported/ethnocentric rg it.otf-20a2122005e455099963d30e2b15d601.fontdata"
+
+[deps]
+
+source_file="res://ui/assets/font/ethnocentric rg it.otf"
+dest_files=["res://.godot/imported/ethnocentric rg it.otf-20a2122005e455099963d30e2b15d601.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
