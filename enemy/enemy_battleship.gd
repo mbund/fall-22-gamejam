@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 @export
 var target: Marker2D;
-
-var laser_scene = preload("res://enemy/laser.tscn");
-var missile_scene = preload("res://enemy/missile.tscn");
+@onready
+var laser_scene = load("res://enemy/laser.tscn");
+@onready
+var missile_scene = load("res://enemy/missile.tscn");
 var previous_missile_front = false;
-
+@onready
+var explosion_scene = load("res://explosion.tscn")
 
 @export
 var speed: float = 100;
@@ -16,6 +18,12 @@ var health = 24;
 func _process(_delta):
 	if health <= 0:
 		queue_free();
+		var explosion = explosion_scene.instantiate();
+		explosion.global_position = self.global_position;
+		explosion.scale = Vector2(8, 8);
+		add_sibling(explosion);
+	if Globulars.player != null:
+		target = Globulars.player.get_node("target")
 
 
 func _on_missile_timer_timeout():
@@ -31,7 +39,6 @@ func _on_missile_timer_timeout():
 		var target_vector = target.global_position - $BackMissileLauncher.global_position;
 		missile.rotation = target_vector.angle();	
 	previous_missile_front = !previous_missile_front;
-	
 	missile.target = target;
 	missile.scale = Vector2(0.4, 0.4);
 	missile.speed = 380;

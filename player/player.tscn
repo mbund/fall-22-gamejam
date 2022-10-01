@@ -54,3 +54,5 @@ position = Vector2(51, -15)
 wait_time = 0.33
 one_shot = true
 autostart = true
+
+[node name="target" type="Marker2D" parent="."]

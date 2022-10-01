@@ -6,6 +6,9 @@ var laser_scene = preload("res://enemy/laser.tscn");
 
 @export var target: Marker2D;
 
+@onready
+var explosion_scene = load("res://explosion.tscn")
+
 var health = 10;
 
 func _on_gun_timer_timeout():
@@ -23,6 +26,10 @@ func _physics_process(delta):
 func _process(_delta):
 	if health <= 0:
 		queue_free();
+		var explosion = explosion_scene.instantiate();
+		explosion.global_position = self.global_position;
+		explosion.scale = Vector2(5, 5);
+		add_sibling(explosion);
 
 
 
