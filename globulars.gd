@@ -6,7 +6,7 @@ var player: Player
 var world: Node
 var blackholes: Array[Blackhole]
 
-func calculate_gravity(pos: Vector2) -> Vector2:
+func calculate_gravity(pos: Vector2, stop_at_blackhole=false) -> Vector2:
 	var gravity = Vector2.ZERO
 	for blackhole in blackholes:
 		var r = (blackhole.global_position - pos)
