@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://be14pgft6frvx"]
+[gd_scene load_steps=3 format=3 uid="uid://4ayds7oluln3"]
 
+[ext_resource type="Script" path="res://enemy/enemy_ship_13.gd" id="1_0p3ry"]
 [ext_resource type="Texture2D" uid="uid://d0h0pdpw4bbs4" path="res://assets/13.png" id="1_68uv4"]
-[ext_resource type="Script" path="res://enemy_ship_13.gd" id="1_nuomr"]
 
 [node name="EnemyShip13" type="CharacterBody2D" node_paths=PackedStringArray("target")]
 rotation = 1.5708
-script = ExtResource("1_nuomr")
+script = ExtResource("1_0p3ry")
 target = NodePath("")
 
 [node name="Sprite" type="Sprite2D" parent="."]

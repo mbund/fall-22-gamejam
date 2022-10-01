@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://space.jpg" id="1_4rffp"]
+[ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://black.png" id="2_bc5qs"]
+[ext_resource type="Material" uid="uid://bfugsbpmsniom" path="res://black-hole-standard.tres" id="2_jgif0"]
+[ext_resource type="PackedScene" uid="uid://4ayds7oluln3" path="res://enemy/enemy_ship_13.tscn" id="4_s50h2"]
+
+[node name="Node2d" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(537, 422)
+texture = ExtResource("1_4rffp")
+
+[node name="blackhole" type="Sprite2D" parent="."]
+material = ExtResource("2_jgif0")
+position = Vector2(347, 421)
+scale = Vector2(0.396, 0.396)
+texture = ExtResource("2_bc5qs")
+
+[node name="black" type="Sprite2D" parent="blackhole"]
+position = Vector2(2.52539, 0)
+scale = Vector2(0.329794, 0.329794)
+texture = ExtResource("2_bc5qs")
+
+[node name="EnemyShip13" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_s50h2")]
+position = Vector2(514, 429)
+rotation = 0.0
+target = NodePath("../Marker2d")
+firing_randomness = 0.05
+
+[node name="Marker2d" type="Marker2D" parent="."]
+position = Vector2(435, -194)

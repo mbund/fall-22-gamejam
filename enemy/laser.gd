@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export
 var speed = 1000
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = Vector2(speed, 0).rotated(self.rotation)
 	move_and_slide()
 
