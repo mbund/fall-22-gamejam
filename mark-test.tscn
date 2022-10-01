@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8js2opp78pf7"]
+[gd_scene load_steps=3 format=3 uid="uid://dvo7rlejuss4a"]
 
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_xuf8e"]
 [ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="2_mtcjx"]
@@ -10,4 +10,4 @@ position = Vector2(581, 352)
 texture = ExtResource("1_xuf8e")
 
 [node name="blackhole" parent="." instance=ExtResource("2_mtcjx")]
-position = Vector2(293, 376)
+position = Vector2(336, 316)
