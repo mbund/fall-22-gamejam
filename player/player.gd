@@ -32,3 +32,7 @@ func _process(delta):
 		
 	move_and_slide()
 	
+func die():
+	Globulars.player = null
+	queue_free()
+	Globulars.on_player_death()
