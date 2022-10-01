@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export
-var speed = 1500
+var speed = 2500
 
 var grace_period = true
 

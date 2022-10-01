@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv3h33bk5voxe"]
+
+[ext_resource type="Script" path="res://enemy/enemy_ship_12.gd" id="1_irfp1"]
+[ext_resource type="Texture2D" uid="uid://8x4wdsqxy4u0" path="res://assets/12.png" id="1_luurx"]
+[ext_resource type="Texture2D" uid="uid://bwjm40jmp3ebg" path="res://assets/Engine_exhaust2_frames/000.png" id="1_o5bj8"]
+[ext_resource type="Texture2D" uid="uid://rbgofdw5d2p7" path="res://assets/Engine_exhaust2_frames/001.png" id="2_6g3wn"]
+[ext_resource type="Texture2D" uid="uid://46heegifwx4s" path="res://assets/Engine_exhaust2_frames/002.png" id="3_olahk"]
+[ext_resource type="Texture2D" uid="uid://duv2fnnffjjfc" path="res://assets/Engine_exhaust2_frames/003.png" id="4_rlwcs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbvu4"]
+animations = [{
+"frames": [ExtResource("1_o5bj8"), ExtResource("2_6g3wn"), ExtResource("3_olahk"), ExtResource("4_rlwcs")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyShip12" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_irfp1")
+
+[node name="CenterEngine" type="AnimatedSprite2D" parent="."]
+position = Vector2(-70, -50)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+frames = SubResource("SpriteFrames_xbvu4")
+playing = true
+
+[node name="CenterEngine2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-70, 50)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+frames = SubResource("SpriteFrames_xbvu4")
+playing = true
+
+[node name="12" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_luurx")
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-14, -171, -14, -128, -18, -125, -18, -99, -16, -92, -22, -80, -22, -64, -44, -63, -44, -38, -61, -38, -46, -22, -46, -15, -49, -12, -49, 12, -46, 15, -46, 23, -61, 38, -44, 38, -44, 63, -22, 64, -22, 80, -15, 93, -18, 99, -18, 125, -14, 128, -14, 171, 3, 128, 5, 114, 8, 106, 17, 99, 38, 82, 38, 78, 51, 73, 51, 71, 38, 66, 38, 58, 31, 53, 35, 19, 55, 14, 61, 5, 61, -5, 55, -14, 35, -19, 33, -34, 28, -54, 31, -54, 38, -58, 38, -66, 51, -71, 51, -73, 38, -78, 38, -82, 26, -89, 14, -101, 10, -101, 4, -114, -1, -143, -9, -165)
+
+[node name="GunPositions" type="Node2D" parent="."]
+position = Vector2(51, 73)
+
+[node name="Marker2d" type="Marker2D" parent="GunPositions"]
+position = Vector2(0, -2)
+
+[node name="Marker2d2" type="Marker2D" parent="GunPositions"]
+
+[node name="Marker2d3" type="Marker2D" parent="GunPositions"]
+position = Vector2(-6, -20)
+
+[node name="Marker2d4" type="Marker2D" parent="GunPositions"]
+position = Vector2(-3, -27)
+
+[node name="Marker2d5" type="Marker2D" parent="GunPositions"]
+position = Vector2(0, -35)
+
+[node name="Marker2d6" type="Marker2D" parent="GunPositions"]
+position = Vector2(0, -45)
+
+[node name="Marker2d7" type="Marker2D" parent="GunPositions"]
+position = Vector2(-2, -57)
+
+[node name="Marker2d8" type="Marker2D" parent="GunPositions"]
+position = Vector2(4, -60)
+
+[node name="Marker2d9" type="Marker2D" parent="GunPositions"]
+position = Vector2(10, -69)
+
+[node name="Marker2d10" type="Marker2D" parent="GunPositions"]
+position = Vector2(10, -77)
+
+[node name="Marker2d11" type="Marker2D" parent="GunPositions"]
+position = Vector2(4, -86)
+
+[node name="Marker2d12" type="Marker2D" parent="GunPositions"]
+position = Vector2(-2, -89)
+
+[node name="Marker2d13" type="Marker2D" parent="GunPositions"]
+position = Vector2(0, -101)
+
+[node name="Marker2d14" type="Marker2D" parent="GunPositions"]
+position = Vector2(0, -111)
+
+[node name="Marker2d15" type="Marker2D" parent="GunPositions"]
+position = Vector2(-3, -119)
+
+[node name="Marker2d16" type="Marker2D" parent="GunPositions"]
+position = Vector2(-6, -126)
+
+[node name="Marker2d17" type="Marker2D" parent="GunPositions"]
+position = Vector2(0, -144)
+
+[node name="Marker2d18" type="Marker2D" parent="GunPositions"]
+position = Vector2(0, -146)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
