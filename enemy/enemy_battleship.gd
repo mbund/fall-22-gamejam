@@ -4,12 +4,31 @@ extends CharacterBody2D
 var target: Marker2D;
 
 var laser_scene = preload("res://enemy/laser.tscn");
+var missile_scene = preload("res://enemy/missile.tscn");
+var previous_missile_front = false;
+
 
 @export
 var speed: float = 100;
 
 func _on_missile_timer_timeout():
-	pass # Replace with function body.
+	if target == null:
+		return
+	var missile: CharacterBody2D = missile_scene.instantiate();
+	if previous_missile_front:
+		missile.position = $FrontMissileLauncher.global_position;
+		var target_vector = target.global_position - $FrontMissileLauncher.global_position;
+		missile.rotation = target_vector.angle();
+	else:
+		missile.position = $BackMissileLauncher.global_position;
+		var target_vector = target.global_position - $BackMissileLauncher.global_position;
+		missile.rotation = target_vector.angle();	
+	previous_missile_front = !previous_missile_front;
+	
+	missile.target = target;
+	missile.scale = Vector2(0.4, 0.4);
+	missile.speed = 380;
+	add_sibling(missile);
 
 
 func _on_laser_timer_timeout():

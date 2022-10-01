@@ -11,4 +11,10 @@ func _physics_process(delta):
 	var target_vector = target.global_position - global_position;
 	var target_angle = target_vector.angle();
 	rotation = lerp_angle(rotation, target_angle, 0.2);
-	move_and_collide(Vector2(speed, 0).rotated(rotation) * delta);
+	if move_and_collide(Vector2(speed, 0).rotated(rotation) * delta) != null:
+		print("target hit!")
+		queue_free()
+
+
+func _on_detonation_timer_timeout():
+	queue_free()

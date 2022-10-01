@@ -10,4 +10,4 @@ var time: float = 0;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time += delta;
-	self.global_position = Vector2(1, 0).rotated(time) * 400;
+	self.global_position = Vector2(1, 0).rotated(time) * 700;
