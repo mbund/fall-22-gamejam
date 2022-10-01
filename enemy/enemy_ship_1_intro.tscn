@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c61p253ginsms"]
+
+[ext_resource type="PackedScene" uid="uid://cncm06b241qss" path="res://enemy/enemy_ship_1.tscn" id="1_so4b7"]
+[ext_resource type="Script" path="res://enemy/enemy_ship_1_intro.gd" id="2_xlinn"]
+
+[node name="EnemyShip1" instance=ExtResource("1_so4b7")]
+script = ExtResource("2_xlinn")
+
+[node name="Timer" parent="." index="7"]
+wait_time = 1.0
+
+[node name="WaitTimer" type="Timer" parent="." index="8"]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

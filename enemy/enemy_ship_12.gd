@@ -26,6 +26,8 @@ func _process(delta):
 		explosion.global_position = self.global_position;
 		explosion.scale = Vector2(6, 6);
 		add_sibling(explosion);
+	if Globulars.player != null:
+		target = Globulars.player.get_node("target")
 
 
 
