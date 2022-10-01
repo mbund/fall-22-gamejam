@@ -9,7 +9,7 @@ const dec = 1
 @onready var exhaust: CanvasItem = $exhaust
 @onready var exhaustfront: CanvasItem = $exhaustfront
 var continuouslaser: ContinuousLaser
-@onready var laser_scene = preload("res://player/PlayerLaser.tscn")
+@onready var laser_scene = load("res://player/PlayerLaser.tscn")
 
 
 func _ready():

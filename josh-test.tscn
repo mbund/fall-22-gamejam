@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://cameracontroller.gd" id="1_nfi84"]
 [ext_resource type="PackedScene" uid="uid://cpgcjfqmd02eh" path="res://player/player.tscn" id="2_synmi"]
 [ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="4_ch4kl"]
-[ext_resource type="PackedScene" uid="uid://c46nu1enlm8um" path="res://environment/blackhole/whitehole.tscn" id="6_0lo7a"]
+[ext_resource type="PackedScene" uid="uid://cjekqwyqierwa" path="res://environment/blackhole/whitehole.tscn" id="6_0lo7a"]
 
 [sub_resource type="Environment" id="Environment_fdtxg"]
 background_mode = 1
