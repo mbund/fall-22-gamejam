@@ -23,4 +23,4 @@ func _physics_process(delta):
 func _on_teleport_timer_timeout():
 	if target == null:
 		return
-	global_position = Vector2(1, 0).rotated(target.rotation + PI) * randf_range(200, 400) + target.global_position
+	global_position = Vector2(1, 0).rotated(target.rotation + PI + randf_range(-0.1, 0.1)) * randf_range(200, 400) + target.global_position
