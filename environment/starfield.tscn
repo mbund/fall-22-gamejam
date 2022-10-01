@@ -1,14 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://u7oqckv8y3yf"]
+[gd_scene load_steps=10 format=3 uid="uid://ry5ablht60rh"]
 
 [ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="1_3d5qp"]
-[ext_resource type="Script" path="res://environment/starfield.gd" id="1_nhagu"]
+[ext_resource type="Script" path="res://environment/starfield.gd" id="1_gtqsc"]
 [ext_resource type="Script" path="res://cameracontroller.gd" id="2_11lgp"]
-[ext_resource type="Shader" path="res://environment/starfield.gdshader" id="2_crbpk"]
+[ext_resource type="Shader" path="res://environment/nebulae.gdshader" id="2_crbpk"]
 [ext_resource type="Script" path="res://environment/GpuParticles2d.gd" id="6_h6l2g"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i8b7i"]
-shader = ExtResource("4_iou1i")
-shader_parameter/pos = Vector2(-0.456, 0)
 
 [sub_resource type="Curve" id="Curve_v4ka8"]
 _data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(0.5, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
@@ -29,15 +25,27 @@ scale_min = 0.0
 scale_curve = SubResource("CurveTexture_yhpoo")
 hue_variation_max = 0.06
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i8b7i"]
+shader = ExtResource("2_crbpk")
+shader_parameter/pos = Vector2(-0.456, 0)
+
 [node name="main" type="Node"]
-script = ExtResource("1_lyps1")
+script = ExtResource("1_gtqsc")
 
 [node name="Camera2d" type="Camera2D" parent="."]
 current = true
 zoom = Vector2(0.33, 0.33)
-script = ExtResource("2_xputq")
+script = ExtResource("2_11lgp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Starfield" type="GPUParticles2D" parent="."]
+amount = 200
+visibility_rect = Rect2(-1000, -1000, 4000, 2000)
+process_material = SubResource("ParticleProcessMaterial_e1cku")
+texture = ExtResource("1_3d5qp")
+script = ExtResource("6_h6l2g")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -2
 
 [node name="Nebulae" type="ColorRect" parent="Background"]
@@ -47,11 +55,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Starfield" type="GPUParticles2D" parent="."]
-amount = 200
-visibility_rect = Rect2(-1000, -1000, 4000, 2000)
-process_material = SubResource("ParticleProcessMaterial_e1cku")
-texture = ExtResource("5_7v1xb")
-script = ExtResource("6_ydvf8")
-metadata/_edit_lock_ = true

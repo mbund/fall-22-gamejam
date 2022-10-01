@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://optoflpmgqcg"]
+[gd_scene load_steps=9 format=3 uid="uid://d28xu3lv0eh30"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_y4phm"]
-[ext_resource type="PackedScene" uid="uid://u7oqckv8y3yf" path="res://environment/starfield.tscn" id="2_djijc"]
+[ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="2_djijc"]
 [ext_resource type="PackedScene" uid="uid://c61p253ginsms" path="res://enemy/enemy_ship_1_intro.tscn" id="3_c23s6"]
 [ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="4_vptse"]
 [ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="5_5r4wa"]
