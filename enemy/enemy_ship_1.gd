@@ -20,6 +20,7 @@ var left_gun: Marker2D = $LeftGun;
 @onready
 var right_gun: Marker2D = $RightGun;
 
+var health: int = 4;
 
 func _physics_process(delta):
 	if(target == null): 
@@ -63,3 +64,7 @@ func _on_timer_timeout():
 		previous_gun_right = true;
 	laser.rotation = (rotation) + randf_range(-firing_randomness, firing_randomness);
 	add_sibling(laser);
+
+func _process(_delta):
+	if health <= 0:
+		queue_free();

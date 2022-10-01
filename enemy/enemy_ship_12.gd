@@ -5,6 +5,8 @@ var laser_scene = preload("res://enemy/laser.tscn");
 @export
 var target: Marker2D;
 
+var health = 12;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -16,6 +18,9 @@ func _process(delta):
 		return
 	var target_vector = target.global_position - global_position;
 	rotation = target_vector.angle()
+	if health <= 0:
+		queue_free();
+
 
 
 func _on_timer_timeout():

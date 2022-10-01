@@ -32,7 +32,6 @@ func _process(delta):
 		rotate(-rotation_strength * delta)
 	if Input.is_action_pressed("right"):
 		rotate(rotation_strength * delta)
-		Timer
 	if Input.is_action_pressed("fire") && $GunCooldown.is_stopped():
 		var laser: CharacterBody2D = laser_scene.instantiate();
 		laser.rotation = rotation;
