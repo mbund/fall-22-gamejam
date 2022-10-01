@@ -28,6 +28,12 @@ func _process(delta):
 		exhaustfront.visible = true
 	else:
 		exhaustfront.visible = false
+	if Input.is_action_pressed("accelerate") or Input.is_action_pressed("brake"):
+		if not $ThrusterPlayer.playing:
+			$ThrusterPlayer.play()
+	else:
+		if $ThrusterPlayer.playing:
+			$ThrusterPlayer.stop()
 	if Input.is_action_pressed("left"):
 		rotate(-rotation_strength * delta)
 	if Input.is_action_pressed("right"):
@@ -42,6 +48,8 @@ func _process(delta):
 		laser2.rotation = rotation;
 		laser2.global_position = $RightGun.global_position;
 		add_sibling(laser2);
+		
+		$ShootPlayer.play()
 		
 		$GunCooldown.start();
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpgcjfqmd02eh"]
+[gd_scene load_steps=11 format=3 uid="uid://cpgcjfqmd02eh"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_cseso"]
 [ext_resource type="Texture2D" uid="uid://bnw34mgmnv2ar" path="res://assets/6B.png" id="1_tv8mu"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://rbgofdw5d2p7" path="res://assets/Engine_exhaust2_frames/001.png" id="3_qxveu"]
 [ext_resource type="Texture2D" uid="uid://46heegifwx4s" path="res://assets/Engine_exhaust2_frames/002.png" id="4_mtrwk"]
 [ext_resource type="Texture2D" uid="uid://duv2fnnffjjfc" path="res://assets/Engine_exhaust2_frames/003.png" id="5_us1vc"]
+[ext_resource type="AudioStream" uid="uid://b1iaxl31vt5gu" path="res://assets/sound/Audio/ogg/laserSmall_002.ogg" id="7_4hsjx"]
+[ext_resource type="AudioStream" uid="uid://c7sn6q6fvla1c" path="res://assets/sound/Audio/ogg/thrusterFire_000.ogg" id="8_ktrv5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p18di"]
 animations = [{
@@ -54,3 +56,10 @@ position = Vector2(51, -15)
 wait_time = 0.33
 one_shot = true
 autostart = true
+
+[node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4hsjx")
+
+[node name="ThrusterPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ktrv5")
+volume_db = -7.523

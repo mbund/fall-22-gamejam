@@ -13,11 +13,13 @@ grow_vertical = 2
 script = ExtResource("1_0vbkq")
 
 [node name="LifeContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 314.0
 offset_bottom = 170.0
 
 [node name="Ship1" type="TextureRect" parent="LifeContainer"]
 custom_minimum_size = Vector2i(64, 64)
+layout_mode = 2
 offset_right = 64.0
 offset_bottom = 170.0
 texture = ExtResource("2_pxfhx")
@@ -26,6 +28,7 @@ stretch_mode = 4
 
 [node name="Ship2" type="TextureRect" parent="LifeContainer"]
 custom_minimum_size = Vector2i(64, 64)
+layout_mode = 2
 offset_left = 68.0
 offset_right = 132.0
 offset_bottom = 170.0
@@ -35,6 +38,7 @@ stretch_mode = 4
 
 [node name="Ship3" type="TextureRect" parent="LifeContainer"]
 custom_minimum_size = Vector2i(64, 64)
+layout_mode = 2
 offset_left = 136.0
 offset_right = 200.0
 offset_bottom = 170.0

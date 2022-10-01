@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdajpo3p4a553"]
+[gd_scene load_steps=14 format=3 uid="uid://cdajpo3p4a553"]
 
 [ext_resource type="Shader" path="res://environment/blackhole/black-hole.gdshader" id="1_hvkm3"]
 [ext_resource type="Script" path="res://environment/blackhole/blackhole.gd" id="2_s53ug"]
 [ext_resource type="Script" path="res://environment/blackhole/animate.gd" id="2_uwl5s"]
+[ext_resource type="AudioStream" uid="uid://d4dia578qj7u" path="res://assets/sound/Audio/ogg/lowFrequency_explosion_000.ogg" id="4_fdxo1"]
 
 [sub_resource type="Curve" id="Curve_3x1ge"]
 min_value = -1.0
@@ -142,5 +143,8 @@ gravity_direction = Vector2(0, 0)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 shape = SubResource("CircleShape2D_tar4g")
+
+[node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fdxo1")
 
 [connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
