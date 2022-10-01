@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpgcjfqmd02eh"]
+[gd_scene load_steps=9 format=3 uid="uid://cpgcjfqmd02eh"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_cseso"]
 [ext_resource type="Texture2D" uid="uid://bnw34mgmnv2ar" path="res://assets/6B.png" id="1_tv8mu"]
@@ -14,6 +14,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uld5x"]
+size = Vector2(77, 157)
 
 [node name="player" type="RigidBody2D"]
 script = ExtResource("1_cseso")
@@ -36,3 +39,7 @@ playing = true
 texture_filter = 1
 rotation = 1.5708
 texture = ExtResource("1_tv8mu")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 1.5)
+shape = SubResource("RectangleShape2D_uld5x")
