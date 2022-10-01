@@ -10,10 +10,10 @@ region = Rect2(12, 500, 72, 72)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqyb4"]
 radius = 36.0
 
-[node name="CharacterBody2d" type="CharacterBody2D"]
+[node name="EnemyShipSaucer" type="CharacterBody2D"]
 script = ExtResource("1_ficab")
 
-[node name="ShipsSaucer" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = SubResource("AtlasTexture_7571u")
 

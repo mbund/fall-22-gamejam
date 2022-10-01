@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0ofqma5mt8na"]
+[gd_scene load_steps=9 format=3 uid="uid://b0ofqma5mt8na"]
 
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_4rffp"]
+[ext_resource type="PackedScene" uid="uid://pfh3iewptd6a" path="res://enemy/enemy_battleship.tscn" id="4_3rse4"]
 [ext_resource type="Script" path="res://Sprite2d.gd" id="4_4wer7"]
 [ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="4_bjaii"]
-[ext_resource type="PackedScene" uid="uid://d147gi367cq2n" path="res://enemy/enemy_ship_saucer.tscn" id="4_v568p"]
+[ext_resource type="Texture2D" uid="uid://d2b5vcprqcrea" path="res://assets/Nebula1.png" id="5_vpion"]
+[ext_resource type="Texture2D" uid="uid://waui72u4bwcb" path="res://assets/Nebula2.png" id="6_7wmww"]
+[ext_resource type="Texture2D" uid="uid://cpp48mr634dko" path="res://assets/Nebula3.png" id="7_pymum"]
+[ext_resource type="PackedScene" uid="uid://do1kankwooovw" path="res://enemy/missile.tscn" id="8_tukvp"]
 
 [node name="Node2d" type="Node2D"]
 
@@ -24,6 +28,24 @@ scale = Vector2(0.25, 0.25)
 current = true
 zoom = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2d" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_v568p")]
-scale = Vector2(3, 3)
+[node name="EnemyBattleship" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3rse4")]
+position = Vector2(-394, -288)
 target = NodePath("../Sprite2d/Marker2d")
+speed = 300.0
+
+[node name="Nebula1" type="Sprite2D" parent="."]
+position = Vector2(-847, -106)
+texture = ExtResource("5_vpion")
+
+[node name="Nebula2" type="Sprite2D" parent="."]
+position = Vector2(123, -368)
+texture = ExtResource("6_7wmww")
+
+[node name="Nebula3" type="Sprite2D" parent="."]
+position = Vector2(-653, 449)
+texture = ExtResource("7_pymum")
+
+[node name="Missile" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_tukvp")]
+scale = Vector2(0.5, 0.5)
+target = NodePath("../Sprite2d/Marker2d")
+speed = 350.0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://pfh3iewptd6a"]
+
+[ext_resource type="Texture2D" uid="uid://dcqp86wk8j6ct" path="res://assets/7.png" id="1_1ivrn"]
+[ext_resource type="Script" path="res://enemy/enemy_battleship.gd" id="1_2jlt8"]
+[ext_resource type="Texture2D" uid="uid://bwjm40jmp3ebg" path="res://assets/Engine_exhaust2_frames/000.png" id="2_u3wub"]
+[ext_resource type="Texture2D" uid="uid://rbgofdw5d2p7" path="res://assets/Engine_exhaust2_frames/001.png" id="3_g310o"]
+[ext_resource type="Texture2D" uid="uid://46heegifwx4s" path="res://assets/Engine_exhaust2_frames/002.png" id="4_01gbm"]
+[ext_resource type="Texture2D" uid="uid://duv2fnnffjjfc" path="res://assets/Engine_exhaust2_frames/003.png" id="5_uuj58"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8daw"]
+animations = [{
+"frames": [ExtResource("2_u3wub"), ExtResource("3_g310o"), ExtResource("4_01gbm"), ExtResource("5_uuj58")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyBattleship" type="CharacterBody2D"]
+script = ExtResource("1_2jlt8")
+
+[node name="7" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_1ivrn")
+
+[node name="CenterEngine" type="AnimatedSprite2D" parent="."]
+position = Vector2(-158, -6)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+frames = SubResource("SpriteFrames_t8daw")
+playing = true
+
+[node name="BackMissileLauncher" type="Marker2D" parent="."]
+position = Vector2(-58, 53)
+
+[node name="FrontLaserCannon" type="Marker2D" parent="."]
+position = Vector2(11, 69)
+
+[node name="BackLaserCannon" type="Marker2D" parent="."]
+position = Vector2(-43, 70)
+
+[node name="FrontMissileLauncher" type="Marker2D" parent="."]
+position = Vector2(-5, 53)
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-129, -47, -92, -62, -44, -70, 53, -70, 97, -61, 130, -46, 67, -39, 64, -15, 65, 11, 72, 14, 78, 26, 126, 27, 116, 34, 84, 34, 66, 42, 44, 47, 11, 69, -6, 70, 6, 62, -4, 58, -4, 50, -14, 50, -41, 69, -59, 70, -59, 47, -89, 46, -100, 42, -100, 29, -84, 29, -81, 23, -116, 22, -123, 14, -124, -22, -117, -29, -85, -29, -72, -32, -66, -38)
+
+[node name="MissileTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="MissileTimer" to="." method="_on_missile_timer_timeout"]
