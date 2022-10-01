@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpgcjfqmd02eh"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_cseso"]
+[ext_resource type="Texture2D" uid="uid://bnw34mgmnv2ar" path="res://assets/6B.png" id="1_tv8mu"]
+[ext_resource type="Texture2D" uid="uid://bwjm40jmp3ebg" path="res://assets/Engine_exhaust2_frames/000.png" id="2_3pq5f"]
+[ext_resource type="Texture2D" uid="uid://rbgofdw5d2p7" path="res://assets/Engine_exhaust2_frames/001.png" id="3_qxveu"]
+[ext_resource type="Texture2D" uid="uid://46heegifwx4s" path="res://assets/Engine_exhaust2_frames/002.png" id="4_mtrwk"]
+[ext_resource type="Texture2D" uid="uid://duv2fnnffjjfc" path="res://assets/Engine_exhaust2_frames/003.png" id="5_us1vc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p18di"]
+animations = [{
+"frames": [ExtResource("2_3pq5f"), ExtResource("3_qxveu"), ExtResource("4_mtrwk"), ExtResource("5_us1vc")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_cseso")
+
+[node name="exhaustfront" type="AnimatedSprite2D" parent="."]
+position = Vector2(19.994, 0)
+rotation = -1.5708
+frames = SubResource("SpriteFrames_p18di")
+playing = true
+
+[node name="exhaust" type="AnimatedSprite2D" parent="."]
+position = Vector2(-43, 0)
+rotation = 1.5708
+frames = SubResource("SpriteFrames_p18di")
+playing = true
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("1_tv8mu")
