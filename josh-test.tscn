@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://txfbqhrs0n4c"]
+[gd_scene load_steps=5 format=3 uid="uid://txfbqhrs0n4c"]
+
+[ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_2lm05"]
+[ext_resource type="Script" path="res://cameracontroller.gd" id="1_nfi84"]
+[ext_resource type="PackedScene" uid="uid://cpgcjfqmd02eh" path="res://player/player.tscn" id="2_synmi"]
+[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="4_ch4kl"]
 
 [node name="josh-test" type="Node2D"]
+
+[node name="Space" type="Sprite2D" parent="."]
+position = Vector2(41.5995, 2.5)
+scale = Vector2(1.28426, 1.28426)
+texture = ExtResource("1_2lm05")
+
+[node name="Camera2d" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_nfi84")
+
+[node name="blackhole" parent="." instance=ExtResource("4_ch4kl")]
+position = Vector2(650, -227)
+
+[node name="blackhole2" parent="." instance=ExtResource("4_ch4kl")]
+position = Vector2(-867, 378)
+
+[node name="player" parent="." instance=ExtResource("2_synmi")]
+position = Vector2(214, 361)
