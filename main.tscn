@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://space.jpg" id="1_4rffp"]
 [ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://black.png" id="2_bc5qs"]
 [ext_resource type="Material" uid="uid://8mhs6ln70emo" path="res://black-hole-standard.tres" id="2_jgif0"]
-[ext_resource type="PackedScene" uid="uid://be14pgft6frvx" path="res://enemy_ship_13.tscn" id="4_s50h2"]
+[ext_resource type="PackedScene" path="res://enemy_ship_13.tscn" id="4_s50h2"]
 
 [node name="Node2d" type="Node2D"]
 

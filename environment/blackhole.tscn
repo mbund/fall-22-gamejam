@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://de7rad3qoilgu"]
+
+[ext_resource type="Material" uid="uid://8mhs6ln70emo" path="res://black-hole-standard.tres" id="1_0xyde"]
+[ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://black.png" id="2_e41kb"]
+
+[sub_resource type="Animation" id="Animation_ly0yw"]
+resource_name = "New Anim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/curve:curve:point_1/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.123377, -0.436364), Vector2(0.126623, -0.163636)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/curve:curve:point_2/position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.251799, 0.527273), Vector2(0.25, 0.236364)]
+}
+
+[sub_resource type="Animation" id="Animation_574yu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/curve:curve:point_1/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.123377, -0.436364)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/curve:curve:point_2/position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.251799, 0.527273)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycdsb"]
+_data = {
+"New Anim": SubResource("Animation_ly0yw"),
+"RESET": SubResource("Animation_574yu")
+}
+
+[node name="blackhole" type="Sprite2D"]
+material = ExtResource("1_0xyde")
+scale = Vector2(0.39521, 0.403071)
+texture = ExtResource("2_e41kb")
+
+[node name="black" type="Sprite2D" parent="."]
+scale = Vector2(0.329794, 0.329794)
+texture = ExtResource("2_e41kb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ycdsb")
+}
