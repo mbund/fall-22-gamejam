@@ -43,3 +43,14 @@ texture = ExtResource("1_tv8mu")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-4.5, 1.5)
 shape = SubResource("RectangleShape2D_uld5x")
+
+[node name="RightGun" type="Marker2D" parent="."]
+position = Vector2(51, 15)
+
+[node name="LeftGun" type="Marker2D" parent="."]
+position = Vector2(51, -15)
+
+[node name="GunCooldown" type="Timer" parent="."]
+wait_time = 0.33
+one_shot = true
+autostart = true
