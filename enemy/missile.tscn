@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://do1kankwooovw"]
+
+[ext_resource type="Texture2D" uid="uid://d2hnrphvsceya" path="res://assets/spaceShooter2_spritesheet.png" id="1_gh46v"]
+[ext_resource type="Script" path="res://enemy/missile.gd" id="1_sbi1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w51f1"]
+atlas = ExtResource("1_gh46v")
+region = Rect2(1029, 507, 36, 161)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8eecw"]
+size = Vector2(158, 29)
+
+[node name="Missile" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_sbi1u")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+texture = SubResource("AtlasTexture_w51f1")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_8eecw")

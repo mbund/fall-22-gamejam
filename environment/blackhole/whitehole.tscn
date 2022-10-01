@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c46nu1enlm8um"]
+
+[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="1_tb1pn"]
+[ext_resource type="Texture2D" uid="uid://klrndumpn1jr" path="res://environment/blackhole/white.png" id="2_nvdq5"]
+
+[node name="whitehole" instance=ExtResource("1_tb1pn")]
+gravity_strength = -3000000
+
+[node name="black" parent="." index="0"]
+texture = ExtResource("2_nvdq5")
+
+[node name="AnimationPlayer" parent="." index="1"]
+animation = 1

@@ -9,12 +9,24 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Sprite2D",
+"class": &"Blackhole",
+"language": &"GDScript",
+"path": "res://environment/blackhole/blackhole.gd"
+}, {
+"base": "Node2D",
+"class": &"ContinuousLaser",
+"language": &"GDScript",
+"path": "res://continuouslaser/continuouslaser.gd"
+}, {
 "base": "RigidBody2D",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://player/player.gd"
 }]
 _global_script_class_icons={
+"Blackhole": "",
+"ContinuousLaser": "",
 "Player": ""
 }
 

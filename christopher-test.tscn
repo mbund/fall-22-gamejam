@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0ofqma5mt8na"]
+[gd_scene load_steps=9 format=3 uid="uid://b0ofqma5mt8na"]
 
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_4rffp"]
-[ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://environment/blackhole/black.png" id="2_bc5qs"]
+[ext_resource type="PackedScene" uid="uid://pfh3iewptd6a" path="res://enemy/enemy_battleship.tscn" id="4_3rse4"]
+[ext_resource type="Script" path="res://Sprite2d.gd" id="4_4wer7"]
 [ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="4_bjaii"]
-[ext_resource type="PackedScene" uid="uid://4ayds7oluln3" path="res://enemy/enemy_ship_13.tscn" id="4_s50h2"]
+[ext_resource type="Texture2D" uid="uid://d2b5vcprqcrea" path="res://assets/Nebula1.png" id="5_vpion"]
+[ext_resource type="Texture2D" uid="uid://waui72u4bwcb" path="res://assets/Nebula2.png" id="6_7wmww"]
+[ext_resource type="Texture2D" uid="uid://cpp48mr634dko" path="res://assets/Nebula3.png" id="7_pymum"]
+[ext_resource type="PackedScene" uid="uid://do1kankwooovw" path="res://enemy/missile.tscn" id="8_tukvp"]
 
 [node name="Node2d" type="Node2D"]
 
@@ -11,26 +15,37 @@
 position = Vector2(537, 422)
 texture = ExtResource("1_4rffp")
 
-[node name="blackhole" type="Sprite2D" parent="."]
-scale = Vector2(0.396, 0.396)
-texture = ExtResource("2_bc5qs")
-
-[node name="black" type="Sprite2D" parent="blackhole"]
-position = Vector2(2.52539, 0)
-scale = Vector2(0.329794, 0.329794)
-texture = ExtResource("2_bc5qs")
-
-[node name="EnemyShip13" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_s50h2")]
-position = Vector2(514, 429)
-target = NodePath("../Sprite2d/Marker2d")
-firing_randomness = 0.1
-firing_cone = 20.0
-turning_speed = 0.2
-
 [node name="Sprite2d" type="Sprite2D" parent="."]
 position = Vector2(798, 565)
 scale = Vector2(4, 4)
 texture = ExtResource("4_bjaii")
+script = ExtResource("4_4wer7")
 
 [node name="Marker2d" type="Marker2D" parent="Sprite2d"]
 scale = Vector2(0.25, 0.25)
+
+[node name="Camera2d" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(0.5, 0.5)
+
+[node name="EnemyBattleship" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3rse4")]
+position = Vector2(-394, -288)
+target = NodePath("../Sprite2d/Marker2d")
+speed = 300.0
+
+[node name="Nebula1" type="Sprite2D" parent="."]
+position = Vector2(-847, -106)
+texture = ExtResource("5_vpion")
+
+[node name="Nebula2" type="Sprite2D" parent="."]
+position = Vector2(123, -368)
+texture = ExtResource("6_7wmww")
+
+[node name="Nebula3" type="Sprite2D" parent="."]
+position = Vector2(-653, 449)
+texture = ExtResource("7_pymum")
+
+[node name="Missile" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_tukvp")]
+scale = Vector2(0.5, 0.5)
+target = NodePath("../Sprite2d/Marker2d")
+speed = 350.0

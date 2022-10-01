@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8krn0l5dwld2"]
+
+[ext_resource type="Script" path="res://continuouslaser/continuouslaser.gd" id="1_ffwf8"]
+
+[node name="continuouslaser" type="Node2D"]
+script = ExtResource("1_ffwf8")
+
+[node name="Line2d" type="Line2D" parent="."]

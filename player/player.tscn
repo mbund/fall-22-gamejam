@@ -18,7 +18,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uld5x"]
 size = Vector2(77, 157)
 
-[node name="player" type="RigidBody2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_cseso")
 
 [node name="exhaustfront" type="AnimatedSprite2D" parent="."]
@@ -43,3 +43,6 @@ texture = ExtResource("1_tv8mu")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-4.5, 1.5)
 shape = SubResource("RectangleShape2D_uld5x")
+
+[node name="Marker2d" type="Marker2D" parent="."]
+position = Vector2(50, 0)

@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://4ayds7oluln3"]
+[gd_scene load_steps=8 format=3 uid="uid://4ayds7oluln3"]
 
 [ext_resource type="Script" path="res://enemy/enemy_ship_13.gd" id="1_0p3ry"]
 [ext_resource type="Texture2D" uid="uid://d0h0pdpw4bbs4" path="res://assets/13.png" id="1_68uv4"]
+[ext_resource type="Texture2D" uid="uid://bwjm40jmp3ebg" path="res://assets/Engine_exhaust2_frames/000.png" id="3_khc5o"]
+[ext_resource type="Texture2D" uid="uid://rbgofdw5d2p7" path="res://assets/Engine_exhaust2_frames/001.png" id="4_5ne86"]
+[ext_resource type="Texture2D" uid="uid://46heegifwx4s" path="res://assets/Engine_exhaust2_frames/002.png" id="5_vrdic"]
+[ext_resource type="Texture2D" uid="uid://duv2fnnffjjfc" path="res://assets/Engine_exhaust2_frames/003.png" id="6_e2eua"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cijb"]
+animations = [{
+"frames": [ExtResource("3_khc5o"), ExtResource("4_5ne86"), ExtResource("5_vrdic"), ExtResource("6_e2eua")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="EnemyShip13" type="CharacterBody2D" node_paths=PackedStringArray("target")]
 script = ExtResource("1_0p3ry")
@@ -13,6 +25,7 @@ texture_repeat = 1
 texture = ExtResource("1_68uv4")
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+visible = false
 rotation = 1.5708
 polygon = PackedVector2Array(64, -46, 79, 1, 79, 12, 84, 15, 84, 28, 82, 29, 82, 39, 69, 52, 63, 52, 63, 33, 43, 33, 38, 45, 34, 45, 34, 48, 29, 48, 29, 51, 18, 51, 18, 47, -15, 47, -18, 47, -18, 50, -28, 50, -28, 48, -34, 48, -42, 35, -63, 34, -63, 52, -68, 52, -80, 39, -80, 29, -83, 27, -84, 16, -79, 12, -72, -28, -64, -45, -64, -12, -59, -15, -51, -10, -42, -11, -42, -22, -36, -37, -31, -38, -31, -25, -26, -25, -16, -43, -16, -32, -3, -46, 5, -46, 17, -29, 17, -42, 25, -26, 31, -25, 31, -37, 35, -37, 43, -21, 43, -12, 49, -9, 52, -13, 56, -13, 57, -15, 60, -15, 60, -12, 63, -12, 64, -46)
 
@@ -25,5 +38,19 @@ position = Vector2(52, 10)
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="LeftEngine" type="AnimatedSprite2D" parent="."]
+position = Vector2(-58, -24)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+frames = SubResource("SpriteFrames_6cijb")
+playing = true
+
+[node name="RightEngine" type="AnimatedSprite2D" parent="."]
+position = Vector2(-58, 23)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+frames = SubResource("SpriteFrames_6cijb")
+playing = true
 
 [connection signal="timeout" from="GunTimer" to="." method="_on_timer_timeout"]

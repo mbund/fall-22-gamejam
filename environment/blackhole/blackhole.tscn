@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdajpo3p4a553"]
+[gd_scene load_steps=13 format=3 uid="uid://cdajpo3p4a553"]
 
 [ext_resource type="Shader" path="res://environment/blackhole/black-hole.gdshader" id="1_hvkm3"]
+[ext_resource type="Script" path="res://environment/blackhole/blackhole.gd" id="2_s53ug"]
 [ext_resource type="Script" path="res://environment/blackhole/animate.gd" id="2_uwl5s"]
 
 [sub_resource type="Curve" id="Curve_3x1ge"]
@@ -112,13 +113,14 @@ _data = {
 "pulse-out": SubResource("Animation_ly0yw")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lt0s2"]
-radius = 3000.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_tar4g"]
+radius = 100.0
 
 [node name="blackhole" type="Sprite2D"]
 material = SubResource("ShaderMaterial_o5ea1")
 scale = Vector2(1, 1.02)
 texture = SubResource("CompressedTexture2D_14op0")
+script = ExtResource("2_s53ug")
 
 [node name="black" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -137,4 +139,6 @@ gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-shape = SubResource("CircleShape2D_lt0s2")
+shape = SubResource("CircleShape2D_tar4g")
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
