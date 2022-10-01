@@ -1,8 +1,8 @@
 extends Node
 
-@onready var colorRect: ColorRect = $CanvasLayer/ColorRect
+@onready var colorRect: ColorRect = $Background/Nebulae
 @onready var camera: Camera2D = $Camera2d
-@onready var particles: GPUParticles2D = $GpuParticles2d2
+@onready var particles: GPUParticles2D = $Starfield
 
 func _ready():
 	Globulars.world = self
