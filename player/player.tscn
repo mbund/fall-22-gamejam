@@ -18,7 +18,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uld5x"]
 size = Vector2(77, 157)
 
-[node name="player" type="RigidBody2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_cseso")
 
 [node name="exhaustfront" type="AnimatedSprite2D" parent="."]
