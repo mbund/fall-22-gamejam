@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8krn0l5dwld2"]
+[gd_scene load_steps=3 format=3 uid="uid://c8krn0l5dwld2"]
 
 [ext_resource type="Script" path="res://continuouslaser/continuouslaser.gd" id="1_ffwf8"]
+[ext_resource type="Texture2D" uid="uid://coce3j3qcnnh6" path="res://assets/continuouslaser.png" id="2_yrjrf"]
 
 [node name="continuouslaser" type="Node2D"]
 script = ExtResource("1_ffwf8")
 
 [node name="Line2d" type="Line2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_yrjrf")
+texture_mode = 2
