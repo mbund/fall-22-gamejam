@@ -2,7 +2,7 @@ extends Node
 
 @export var num_black_holes = 4;
 
-var blackhole_scene = preload("res://environment/blackhole.tscn");
+var blackhole_scene = preload("res://environment/blackhole/blackhole.tscn");
 
 const MEASURE = 500;
 
