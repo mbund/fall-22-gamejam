@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody2D
+extends RigidBody2D
 
 const acceleration_strength = 1000
 const break_strength = acceleration_strength
@@ -15,23 +15,18 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("accelerate"):
-		velocity += acceleration_strength  * transform.x * delta
+		add_constant_force(acceleration_strength  * transform.x * delta)
 		exhaust.visible = true
 	else:
 		exhaust.visible = false
 	if Input.is_action_pressed("brake"):
-		velocity -= break_strength  * transform.x * delta
+		add_constant_force(-break_strength  * transform.x * delta)
 		exhaustfront.visible = true
 	else:
 		exhaustfront.visible = false
 	if Input.is_action_pressed("left"):
-		rotate(-rotation_strength * delta)
-	if Input.is_action_pressed("right"):
-		rotate(rotation_strength * delta)
-		
-	move_and_slide()
-	
-func black_hole_gravity(bh_position: Vector2):
-	var r = bh_position - global_position
-	var dist = r.length()
-	velocity += blackhole_strength * (r/dist) / (r.length()**2)
+		angular_velocity = -rotation_strength
+	elif Input.is_action_pressed("right"):
+		angular_velocity = rotation_strength
+	else:
+		angular_velocity = 0
