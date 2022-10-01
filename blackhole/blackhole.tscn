@@ -1,12 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://c28tpv5tunsjl"]
+[gd_scene load_steps=4 format=3 uid="uid://c28tpv5tunsjl"]
 
-[ext_resource type="Script" path="res://blackhole/blackhole.gd" id="1_5g0ta"]
 [ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://blackhole/black.png" id="1_tjbeo"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrlxw"]
+radius = 1000.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pr5bk"]
+radius = 80.0
+
 [node name="blackhole" type="Node2D"]
-script = ExtResource("1_5g0ta")
 
 [node name="Black" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_tjbeo")
+
+[node name="GravityArea" type="Area2D" parent="."]
+gravity_space_override = 1
+gravity_point = true
+gravity = 200.0
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="GravityArea"]
+shape = SubResource("CircleShape2D_jrlxw")
+
+[node name="Death" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Death"]
+shape = SubResource("CircleShape2D_pr5bk")
