@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://620nw864h08l"]
+[gd_scene load_steps=3 format=3 uid="uid://620nw864h08l"]
 
+[ext_resource type="Script" path="res://ui/ui.gd" id="1_0vbkq"]
 [ext_resource type="Texture2D" uid="uid://box414q2sqlcr" path="res://ui/ship.png" id="2_pxfhx"]
 
 [node name="ui" type="Control"]
@@ -9,58 +10,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0vbkq")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="LifeContainer" type="HBoxContainer" parent="."]
+offset_right = 314.0
+offset_bottom = 170.0
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-ratio = 3.4
-
-[node name="Control" type="Control" parent="CanvasLayer/AspectRatioContainer"]
-layout_mode = 2
-anchors_preset = 0
-offset_top = 14.1176
-offset_right = 40.0
-offset_bottom = 25.8824
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/AspectRatioContainer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.294
-anchor_bottom = 1.0
-offset_right = 102.0
+[node name="Ship1" type="TextureRect" parent="LifeContainer"]
+custom_minimum_size = Vector2i(64, 64)
+offset_right = 64.0
 offset_bottom = 170.0
 texture = ExtResource("2_pxfhx")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Control2" type="Control" parent="CanvasLayer/AspectRatioContainer"]
-layout_mode = 2
-anchors_preset = 0
-offset_top = 14.1176
-offset_right = 40.0
-offset_bottom = 25.8824
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/AspectRatioContainer/Control2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.353
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -70.0
-offset_right = 102.0
-offset_bottom = 100.0
-texture = ExtResource("2_pxfhx")
-
-[node name="Control3" type="Control" parent="CanvasLayer/AspectRatioContainer"]
-layout_mode = 2
-anchors_preset = 0
-offset_top = 14.1176
-offset_right = 40.0
-offset_bottom = 25.8824
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/AspectRatioContainer/Control3"]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 102.0
+[node name="Ship2" type="TextureRect" parent="LifeContainer"]
+custom_minimum_size = Vector2i(64, 64)
+offset_left = 68.0
+offset_right = 132.0
 offset_bottom = 170.0
 texture = ExtResource("2_pxfhx")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Ship3" type="TextureRect" parent="LifeContainer"]
+custom_minimum_size = Vector2i(64, 64)
+offset_left = 136.0
+offset_right = 200.0
+offset_bottom = 170.0
+texture = ExtResource("2_pxfhx")
+ignore_texture_size = true
+stretch_mode = 4
