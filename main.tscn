@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://u7oqckv8y3yf"]
+[gd_scene load_steps=14 format=3 uid="uid://u7oqckv8y3yf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_lyps1"]
+[ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="2_il0kp"]
 [ext_resource type="Script" path="res://cameracontroller.gd" id="2_xputq"]
 [ext_resource type="PackedScene" uid="uid://cpgcjfqmd02eh" path="res://player/player.tscn" id="3_pdurw"]
 [ext_resource type="Shader" path="res://environment/nebulae.gdshader" id="4_iou1i"]
@@ -67,3 +68,8 @@ position = Vector2(1353, 7)
 [node name="EnemyBattleship" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_mgyos")]
 position = Vector2(2494, 1031)
 target = NodePath("")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ui" parent="UI" instance=ExtResource("2_il0kp")]

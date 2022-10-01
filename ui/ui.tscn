@@ -12,36 +12,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0vbkq")
 
-[node name="LifeContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 314.0
-offset_bottom = 170.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2i(60, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
 
-[node name="Ship1" type="TextureRect" parent="LifeContainer"]
+[node name="LifeContainer" type="HBoxContainer" parent="MarginContainer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 74.0
+
+[node name="Ship1" type="TextureRect" parent="MarginContainer/LifeContainer"]
 custom_minimum_size = Vector2i(64, 64)
-layout_mode = 2
 offset_right = 64.0
-offset_bottom = 170.0
+offset_bottom = 64.0
 texture = ExtResource("2_pxfhx")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Ship2" type="TextureRect" parent="LifeContainer"]
+[node name="Ship2" type="TextureRect" parent="MarginContainer/LifeContainer"]
 custom_minimum_size = Vector2i(64, 64)
-layout_mode = 2
 offset_left = 68.0
 offset_right = 132.0
-offset_bottom = 170.0
+offset_bottom = 64.0
 texture = ExtResource("2_pxfhx")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Ship3" type="TextureRect" parent="LifeContainer"]
+[node name="Ship3" type="TextureRect" parent="MarginContainer/LifeContainer"]
 custom_minimum_size = Vector2i(64, 64)
-layout_mode = 2
 offset_left = 136.0
 offset_right = 200.0
-offset_bottom = 170.0
+offset_bottom = 64.0
 texture = ExtResource("2_pxfhx")
 ignore_texture_size = true
 stretch_mode = 4

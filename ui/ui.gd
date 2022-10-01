@@ -1,11 +1,9 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	Globulars.ui = self;
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	Globulars.player_death.connect(func():
+		var lc = $MarginContainer/LifeContainer
+		if lc.get_child_count() > 0:
+			lc.get_child(lc.get_child_count()-1).queue_free()
+	)

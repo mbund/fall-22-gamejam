@@ -72,4 +72,4 @@ func die(is_blackhole=false):
 		add_sibling(explosion);
 	Globulars.player = null
 	queue_free()
-	Globulars.on_player_death()
+	Globulars.player_death.emit()

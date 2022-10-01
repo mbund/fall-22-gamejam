@@ -39,6 +39,7 @@ config/features=PackedStringArray("4.0")
 [autoload]
 
 Globulars="*res://globulars.gd"
+SceneTransition="*res://SceneTransition.tscn"
 
 [display]
 
