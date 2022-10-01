@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdajpo3p4a553"]
+[gd_scene load_steps=13 format=3 uid="uid://cdajpo3p4a553"]
 
 [ext_resource type="Shader" path="res://environment/blackhole/black-hole.gdshader" id="1_hvkm3"]
+[ext_resource type="Script" path="res://environment/blackhole/blackhole.gd" id="2_s53ug"]
 [ext_resource type="Script" path="res://environment/blackhole/animate.gd" id="2_uwl5s"]
 
 [sub_resource type="Curve" id="Curve_3x1ge"]
@@ -47,35 +48,6 @@ tracks/1/keys = {
 "values": [Vector2(0.123377, -0.436364)]
 }
 
-[sub_resource type="Animation" id="Animation_ly0yw"]
-resource_name = "New Anim"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/curve:curve:point_1/position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.123377, -0.436364), Vector2(0.123, -0.308), Vector2(0.123377, -0.436364)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:material:shader_parameter/curve:curve:point_2/position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.251799, 0.527273), Vector2(0.252, 0.429), Vector2(0.251799, 0.527273)]
-}
-
 [sub_resource type="Animation" id="Animation_yot87"]
 resource_name = "pulse-in"
 length = 2.0
@@ -105,6 +77,35 @@ tracks/1/keys = {
 "values": [Vector2(0.251799, 0.527273), Vector2(0.252, 0.429), Vector2(0.251799, 0.527273)]
 }
 
+[sub_resource type="Animation" id="Animation_ly0yw"]
+resource_name = "New Anim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/curve:curve:point_1/position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.123377, -0.436364), Vector2(0.123, -0.308), Vector2(0.123377, -0.436364)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/curve:curve:point_2/position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.251799, 0.527273), Vector2(0.252, 0.429), Vector2(0.251799, 0.527273)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ycdsb"]
 _data = {
 "RESET": SubResource("Animation_e2jf5"),
@@ -112,13 +113,14 @@ _data = {
 "pulse-out": SubResource("Animation_ly0yw")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lt0s2"]
-radius = 3000.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_tar4g"]
+radius = 100.0
 
 [node name="blackhole" type="Sprite2D"]
 material = SubResource("ShaderMaterial_o5ea1")
 scale = Vector2(1, 1.02)
 texture = SubResource("CompressedTexture2D_14op0")
+script = ExtResource("2_s53ug")
 
 [node name="black" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -128,15 +130,11 @@ texture = SubResource("CompressedTexture2D_14op0")
 libraries = {
 "": SubResource("AnimationLibrary_ycdsb")
 }
-
 script = ExtResource("2_uwl5s")
 
 [node name="Area2d" type="Area2D" parent="."]
-gravity_space_override = 1
-gravity_point = true
-gravity_point_center = Vector2(0, 0)
-gravity_direction = Vector2(0, 0)
-gravity = 1000.0
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-shape = SubResource("CircleShape2D_lt0s2")
+shape = SubResource("CircleShape2D_tar4g")
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
