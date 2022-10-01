@@ -8,11 +8,14 @@ const dec = 1
 
 @onready var exhaust: CanvasItem = $exhaust
 @onready var exhaustfront: CanvasItem = $exhaustfront
+var continuouslaser: ContinuousLaser
 
 func _ready():
 	Globulars.player = self
-
+	
 func _process(delta):
+	continuouslaser = Globulars.world.get_node("continuouslaser")
+	
 	velocity += Globulars.calculate_gravity(global_position)
 	
 	if Input.is_action_pressed("accelerate"):
@@ -29,6 +32,10 @@ func _process(delta):
 		rotate(-rotation_strength * delta)
 	if Input.is_action_pressed("right"):
 		rotate(rotation_strength * delta)
+		
+	if continuouslaser:
+		continuouslaser.start_pos = $Marker2d.global_position
+		continuouslaser.facing = transform.x
 		
 	move_and_slide()
 	
