@@ -19,7 +19,8 @@ var laser_scene = preload("res://enemy/laser.tscn")
 var left_gun: Marker2D = $LeftGun;
 @onready
 var right_gun: Marker2D = $RightGun;
-
+@onready
+var explosion_scene = load("res://explosion.tscn")
 var health: int = 4;
 
 func _physics_process(delta):
@@ -68,3 +69,7 @@ func _on_timer_timeout():
 func _process(_delta):
 	if health <= 0:
 		queue_free();
+		var explosion = explosion_scene.instantiate();
+		explosion.global_position = self.global_position;
+		explosion.scale = Vector2(4, 4);
+		add_sibling(explosion);

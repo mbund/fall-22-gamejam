@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://u7oqckv8y3yf"]
+[gd_scene load_steps=13 format=3 uid="uid://u7oqckv8y3yf"]
 
 [ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="1_3d5qp"]
 [ext_resource type="Script" path="res://environment/starfield.gd" id="1_nhagu"]
@@ -6,9 +6,8 @@
 [ext_resource type="Script" path="res://cameracontroller.gd" id="2_11lgp"]
 [ext_resource type="Shader" path="res://environment/starfield.gdshader" id="2_crbpk"]
 [ext_resource type="Script" path="res://environment/GpuParticles2d.gd" id="6_h6l2g"]
-[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="7_nlenn"]
-[ext_resource type="PackedScene" uid="uid://pfh3iewptd6a" path="res://enemy/enemy_battleship.tscn" id="8_ptof1"]
-[ext_resource type="PackedScene" uid="uid://d147gi367cq2n" path="res://enemy/enemy_ship_saucer.tscn" id="9_2nfc5"]
+[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="7_mm5st"]
+[ext_resource type="PackedScene" uid="uid://pfh3iewptd6a" path="res://enemy/enemy_battleship.tscn" id="8_xy7tn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i8b7i"]
 shader = ExtResource("2_crbpk")
@@ -31,13 +30,14 @@ orbit_velocity_max = 0.0
 angle_max = 180.0
 scale_min = 0.0
 scale_curve = SubResource("CurveTexture_yhpoo")
+hue_variation_max = 0.06
 
 [node name="starfield" type="Node"]
 script = ExtResource("1_nhagu")
 
 [node name="Camera2d" type="Camera2D" parent="."]
 current = true
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.33, 0.33)
 script = ExtResource("2_11lgp")
 
 [node name="player" parent="." instance=ExtResource("2_0nsb3")]
@@ -61,11 +61,9 @@ texture = ExtResource("1_3d5qp")
 script = ExtResource("6_h6l2g")
 metadata/_edit_lock_ = true
 
-[node name="blackhole" parent="." instance=ExtResource("7_nlenn")]
-position = Vector2(761, 200)
+[node name="blackhole" parent="." instance=ExtResource("7_mm5st")]
+position = Vector2(1353, 7)
 
-[node name="EnemyBattleship" parent="." instance=ExtResource("8_ptof1")]
-position = Vector2(2272, 92)
-
-[node name="EnemyShipSaucer" parent="." instance=ExtResource("9_2nfc5")]
-position = Vector2(1635, 352)
+[node name="EnemyBattleship" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_xy7tn")]
+position = Vector2(2494, 1031)
+target = NodePath("")

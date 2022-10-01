@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://drej7y1o5fiwu"]
 
-[ext_resource type="Script" path="res://enemy/laser.gd" id="1_02j4g"]
+[ext_resource type="Script" path="res://player/player_laser.gd" id="1_i7irx"]
 [ext_resource type="Texture2D" uid="uid://fdaxj7pec53w" path="res://player/player_laser.png" id="2_hgcfk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gcra"]
@@ -11,7 +11,7 @@ height = 12.0
 modulate = Color(0, 1, 1, 1)
 collision_layer = 2
 collision_mask = 20
-script = ExtResource("1_02j4g")
+script = ExtResource("1_i7irx")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
