@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://jn7b5gdtam5b"]
+[gd_scene load_steps=5 format=3 uid="uid://jn7b5gdtam5b"]
 
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://space.jpg" id="1_4rffp"]
 [ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://black.png" id="2_bc5qs"]
 [ext_resource type="Material" uid="uid://8mhs6ln70emo" path="res://black-hole-standard.tres" id="2_jgif0"]
+[ext_resource type="PackedScene" uid="uid://be14pgft6frvx" path="res://enemy_ship_13.tscn" id="4_s50h2"]
 
 [node name="Node2d" type="Node2D"]
 
@@ -20,3 +21,12 @@ texture = ExtResource("2_bc5qs")
 position = Vector2(2.52539, 0)
 scale = Vector2(0.329794, 0.329794)
 texture = ExtResource("2_bc5qs")
+
+[node name="EnemyShip13" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_s50h2")]
+position = Vector2(514, 429)
+rotation = 0.0
+target = NodePath("../Marker2d")
+firing_randomness = 0.05
+
+[node name="Marker2d" type="Marker2D" parent="."]
+position = Vector2(435, -194)
