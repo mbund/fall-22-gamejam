@@ -23,7 +23,9 @@ func _ready():
 			return
 		lives -= 1
 		await get_tree().create_timer(1.0).timeout
-		player = PlayerScene.instantiate()
+		if world.get_node("player_spawn") != null:
+			player.global_position = world.get_node("player_spawn").global_position
 		world.add_child(player)
 	)
 	
+

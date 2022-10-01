@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://optoflpmgqcg"]
+
+[ext_resource type="Script" path="res://level_1.gd" id="1_y4phm"]
+[ext_resource type="PackedScene" uid="uid://u7oqckv8y3yf" path="res://environment/starfield.tscn" id="2_djijc"]
+[ext_resource type="PackedScene" uid="uid://c61p253ginsms" path="res://enemy/enemy_ship_1_intro.tscn" id="3_c23s6"]
+[ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="4_vptse"]
+[ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="5_5r4wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fygsb"]
+size = Vector2(100, 3000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x3ns"]
+size = Vector2(3000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es05y"]
+size = Vector2(100, 3000)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_y4phm")
+
+[node name="StaticBody2d" type="StaticBody2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(1500, 0)
+shape = SubResource("RectangleShape2D_fygsb")
+
+[node name="CollisionShape2d2" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(0, -1500)
+shape = SubResource("RectangleShape2D_5x3ns")
+
+[node name="CollisionShape2d4" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(0, 1500)
+shape = SubResource("RectangleShape2D_5x3ns")
+
+[node name="CollisionShape2d3" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(-1500, 0)
+shape = SubResource("RectangleShape2D_es05y")
+
+[node name="starfield" parent="." instance=ExtResource("2_djijc")]
+
+[node name="player_spawn" type="Marker2D" parent="."]
+position = Vector2(-1202, -10)
+
+[node name="EnemyShip1" parent="." instance=ExtResource("3_c23s6")]
+position = Vector2(778, 3)
+rotation = 3.14159
+firing_randomness = 0.2
+firing_cone = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui" parent="CanvasLayer" instance=ExtResource("4_vptse")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1050.0
+offset_top = -257.0
+offset_right = -669.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource("5_5r4wa")
+theme_override_font_sizes/font_size = 36
+text = "W - Forward
+S - Backward
+A - Turn Left
+D - Turn Right
+Space - Fire"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -379.0
+offset_top = 35.0
+offset_right = 328.0
+offset_bottom = 275.0
+theme_override_fonts/font = ExtResource("5_5r4wa")
+theme_override_font_sizes/font_size = 36
+text = "Be careful,
+enemies are everywhere"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 484.0
+offset_top = -264.0
+offset_right = 1191.0
+offset_bottom = -24.0
+theme_override_fonts/font = ExtResource("5_5r4wa")
+theme_override_font_sizes/font_size = 36
+text = "Destroy All enemies
+to beat the level"

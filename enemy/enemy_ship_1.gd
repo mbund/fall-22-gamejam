@@ -28,12 +28,8 @@ func _physics_process(delta):
 		return;
 	var marker_vector = target.global_position - global_position;
 	var current_direction = Vector2(1, 0).rotated(rotation);
-	#print("marker: ", rad_to_deg(marker_vector.angle()));
-	#print("current: ", rad_to_deg(current_direction.angle()));
 	rotation = marker_vector.angle();
-	#rotation = lerp(rotation, marker_vector.angle(), turning_speed)
 	
-	print(velocity.length())
 	if(marker_vector.length() > speed):
 		velocity = Vector2(speed, 0).rotated(self.rotation)
 		move_and_collide(velocity * delta)
@@ -73,3 +69,5 @@ func _process(_delta):
 		explosion.global_position = self.global_position;
 		explosion.scale = Vector2(4, 4);
 		add_sibling(explosion);
+	if Globulars.player != null:
+		target = Globulars.player.get_node("target")

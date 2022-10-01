@@ -6,8 +6,8 @@ var target: Marker2D;
 var firing_randomness: float;
 @export
 var firing_cone: float;
-@export_range(0, 1.0)
-var turning_speed: float;
+#@export_range(0, 1.0)
+#var turning_speed: float;
 @export
 var speed: float;
 
@@ -21,38 +21,25 @@ var left_gun: Marker2D = $LeftGun;
 var right_gun: Marker2D = $RightGun;
 @onready
 var explosion_scene = load("res://explosion.tscn")
-
-var health = 8;
-
-func _process(_delta):
-	if health <= 0:
-		queue_free();
-		var explosion = explosion_scene.instantiate();
-		explosion.global_position = self.global_position;
-		explosion.scale = Vector2(5, 5);
-		add_sibling(explosion);
-	if Globulars.player != null:
-		target = Globulars.player.get_node("target")
-
+var health: int = 4;
 
 func _physics_process(delta):
 	if(target == null): 
 		return;
 	var marker_vector = target.global_position - global_position;
 	var current_direction = Vector2(1, 0).rotated(rotation);
-	#print("marker: ", rad_to_deg(marker_vector.angle()));
-	#print("current: ", rad_to_deg(current_direction.angle()));
 	rotation = marker_vector.angle();
-	#rotation = lerp(rotation, marker_vector.angle(), turning_speed)
 	
 	if(marker_vector.length() > speed):
 		velocity = Vector2(speed, 0).rotated(self.rotation)
-		move_and_slide()
+		move_and_collide(velocity * delta)
 		$LeftEngine.visible = true;
 		$RightEngine.visible = true;
+		$CenterEngine.visible = true;
 	else:
 		$LeftEngine.visible = false;
 		$RightEngine.visible = false;
+		$CenterEngine.visible = false;
 
 func pointing_at_player():
 	if(target == null):
@@ -61,9 +48,8 @@ func pointing_at_player():
 	var current_direction = Vector2(1, 0).rotated(rotation);
 	return marker_vector.angle_to(current_direction) < deg_to_rad(firing_cone);
 
-
 func _on_timer_timeout():
-	if(!pointing_at_player()):
+	if(!pointing_at_player() || !$WaitTimer.is_stopped()):
 		return
 	var laser: CharacterBody2D = laser_scene.instantiate();
 	if(previous_gun_right):
@@ -74,3 +60,14 @@ func _on_timer_timeout():
 		previous_gun_right = true;
 	laser.rotation = (rotation) + randf_range(-firing_randomness, firing_randomness);
 	add_sibling(laser);
+
+func _process(_delta):
+	if health <= 0:
+		queue_free();
+		var explosion = explosion_scene.instantiate();
+		explosion.global_position = self.global_position;
+		explosion.scale = Vector2(4, 4);
+		add_sibling(explosion);
+	if Globulars.player != null:
+		target = Globulars.player.get_node("target")
+
