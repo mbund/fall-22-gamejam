@@ -6,8 +6,8 @@ var target: Marker2D;
 var firing_randomness: float;
 @export
 var firing_cone: float;
-@export_range(0, 1.0)
-var turning_speed: float;
+#@export_range(0, 1.0)
+#var turning_speed: float;
 @export
 var speed: float;
 
@@ -31,14 +31,17 @@ func _physics_process(delta):
 	rotation = marker_vector.angle();
 	#rotation = lerp(rotation, marker_vector.angle(), turning_speed)
 	
+	print(velocity.length())
 	if(marker_vector.length() > speed):
 		velocity = Vector2(speed, 0).rotated(self.rotation)
-		move_and_slide()
+		move_and_collide(velocity * delta)
 		$LeftEngine.visible = true;
 		$RightEngine.visible = true;
+		$CenterEngine.visible = true;
 	else:
 		$LeftEngine.visible = false;
 		$RightEngine.visible = false;
+		$CenterEngine.visible = false;
 
 func pointing_at_player():
 	if(target == null):

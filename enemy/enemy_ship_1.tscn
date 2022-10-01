@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cncm06b241qss"]
+
+[ext_resource type="Script" path="res://enemy/enemy_ship_1.gd" id="1_k1i4l"]
+[ext_resource type="Texture2D" uid="uid://ce3oqvbq1s7fp" path="res://assets/1.png" id="1_ol23b"]
+[ext_resource type="Texture2D" uid="uid://bwjm40jmp3ebg" path="res://assets/Engine_exhaust2_frames/000.png" id="2_tdlbt"]
+[ext_resource type="Texture2D" uid="uid://rbgofdw5d2p7" path="res://assets/Engine_exhaust2_frames/001.png" id="3_08mer"]
+[ext_resource type="Texture2D" uid="uid://46heegifwx4s" path="res://assets/Engine_exhaust2_frames/002.png" id="4_7lvrk"]
+[ext_resource type="Texture2D" uid="uid://duv2fnnffjjfc" path="res://assets/Engine_exhaust2_frames/003.png" id="5_kxcbl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_trxqn"]
+animations = [{
+"frames": [ExtResource("2_tdlbt"), ExtResource("3_08mer"), ExtResource("4_7lvrk"), ExtResource("5_kxcbl")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyShip1" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_k1i4l")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ol23b")
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-39, -62, -67, -1, -40, 62, 22, 62, 67, 5, 66, -5, 22, -63)
+
+[node name="RightGun" type="Marker2D" parent="."]
+position = Vector2(35, 37)
+
+[node name="RightEngine" type="AnimatedSprite2D" parent="."]
+position = Vector2(-57, 56)
+rotation = 1.5708
+scale = Vector2(0.36, 0.36)
+frames = SubResource("SpriteFrames_trxqn")
+playing = true
+
+[node name="LeftEngine" type="AnimatedSprite2D" parent="."]
+position = Vector2(-57, -56)
+rotation = 1.5708
+scale = Vector2(0.36, 0.36)
+frames = SubResource("SpriteFrames_trxqn")
+playing = true
+
+[node name="CenterEngine" type="AnimatedSprite2D" parent="."]
+position = Vector2(-80, 0)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+frames = SubResource("SpriteFrames_trxqn")
+playing = true
+
+[node name="LeftGun" type="Marker2D" parent="."]
+position = Vector2(35, -37)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
