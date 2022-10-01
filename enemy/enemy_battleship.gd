@@ -11,6 +11,13 @@ var previous_missile_front = false;
 @export
 var speed: float = 100;
 
+var health = 24;
+
+func _process(_delta):
+	if health <= 0:
+		queue_free();
+
+
 func _on_missile_timer_timeout():
 	if target == null:
 		return

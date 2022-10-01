@@ -1,14 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0ofqma5mt8na"]
+[gd_scene load_steps=11 format=3 uid="uid://b0ofqma5mt8na"]
 
 [ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_4rffp"]
+[ext_resource type="Script" path="res://christopher-test.gd" id="1_ht5ud"]
 [ext_resource type="Script" path="res://Sprite2d.gd" id="4_4wer7"]
 [ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="4_bjaii"]
 [ext_resource type="Texture2D" uid="uid://d2b5vcprqcrea" path="res://assets/Nebula1.png" id="5_vpion"]
 [ext_resource type="Texture2D" uid="uid://waui72u4bwcb" path="res://assets/Nebula2.png" id="6_7wmww"]
-[ext_resource type="PackedScene" uid="uid://bv3h33bk5voxe" path="res://enemy/enemy_ship_12.tscn" id="7_1b8hf"]
+[ext_resource type="PackedScene" uid="uid://cpgcjfqmd02eh" path="res://player/player.tscn" id="7_a7xh6"]
 [ext_resource type="Texture2D" uid="uid://cpp48mr634dko" path="res://assets/Nebula3.png" id="7_pymum"]
+[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="9_denqh"]
+[ext_resource type="PackedScene" uid="uid://d147gi367cq2n" path="res://enemy/enemy_ship_saucer.tscn" id="11_08ehn"]
 
 [node name="Node2d" type="Node2D"]
+script = ExtResource("1_ht5ud")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(537, 422)
@@ -23,10 +27,6 @@ script = ExtResource("4_4wer7")
 [node name="Marker2d" type="Marker2D" parent="Sprite2d"]
 scale = Vector2(0.25, 0.25)
 
-[node name="Camera2d" type="Camera2D" parent="."]
-current = true
-zoom = Vector2(0.5, 0.5)
-
 [node name="Nebula1" type="Sprite2D" parent="."]
 position = Vector2(-847, -106)
 texture = ExtResource("5_vpion")
@@ -39,5 +39,14 @@ texture = ExtResource("6_7wmww")
 position = Vector2(-653, 449)
 texture = ExtResource("7_pymum")
 
-[node name="EnemyShip12" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_1b8hf")]
-target = NodePath("../Sprite2d/Marker2d")
+[node name="player" parent="." instance=ExtResource("7_a7xh6")]
+position = Vector2(-390, 253)
+
+[node name="Camera2d" type="Camera2D" parent="player"]
+current = true
+zoom = Vector2(0.5, 0.5)
+
+[node name="EnemyShipSaucer" parent="." instance=ExtResource("11_08ehn")]
+
+[node name="blackhole" parent="." instance=ExtResource("9_denqh")]
+position = Vector2(461, 438)

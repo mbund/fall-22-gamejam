@@ -16,6 +16,8 @@ animations = [{
 }]
 
 [node name="EnemyShip13" type="CharacterBody2D" node_paths=PackedStringArray("target")]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_0p3ry")
 target = NodePath("")
 

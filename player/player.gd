@@ -9,6 +9,8 @@ const dec = 1
 @onready var exhaust: CanvasItem = $exhaust
 @onready var exhaustfront: CanvasItem = $exhaustfront
 var continuouslaser: ContinuousLaser
+@onready var laser_scene = load("res://player/PlayerLaser.tscn")
+
 
 func _ready():
 	Globulars.player = self
@@ -30,9 +32,22 @@ func _process(delta):
 		rotate(-rotation_strength * delta)
 	if Input.is_action_pressed("right"):
 		rotate(rotation_strength * delta)
+	if Input.is_action_pressed("fire") && $GunCooldown.is_stopped():
+		var laser: CharacterBody2D = laser_scene.instantiate();
+		laser.rotation = rotation;
+		laser.global_position = $LeftGun.global_position;
+		add_sibling(laser);
 		
-	move_and_slide()
+		var laser2: CharacterBody2D = laser_scene.instantiate();
+		laser2.rotation = rotation;
+		laser2.global_position = $RightGun.global_position;
+		add_sibling(laser2);
+		
+		$GunCooldown.start();
 	
+	move_and_slide()
+
+
 
 	
 func die():

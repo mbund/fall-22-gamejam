@@ -6,6 +6,7 @@ var laser_scene = preload("res://enemy/laser.tscn");
 
 @export var target: Marker2D;
 
+var health = 10;
 
 func _on_gun_timer_timeout():
 	for node in $GunPositions.get_children():
@@ -18,6 +19,11 @@ func _on_gun_timer_timeout():
 
 func _physics_process(delta):
 	rotation += delta * turning_speed;
+
+func _process(_delta):
+	if health <= 0:
+		queue_free();
+
 
 
 func _on_teleport_timer_timeout():

@@ -25,7 +25,6 @@ func on_player_death():
 			get_tree().change_scene_to_packed(LossScene);
 			return
 		player_container.get_child(player_container.get_child_count() - 1).queue_free()
-
 	await get_tree().create_timer(1.0).timeout
 	player = PlayerScene.instantiate()
 	world.add_child(player)

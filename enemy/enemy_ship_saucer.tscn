@@ -11,6 +11,9 @@ region = Rect2(12, 500, 72, 72)
 radius = 36.0
 
 [node name="EnemyShipSaucer" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_ficab")
 
 [node name="Sprite" type="Sprite2D" parent="."]

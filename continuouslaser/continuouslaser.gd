@@ -9,7 +9,7 @@ func _ready():
 	for i in range(numpoints):
 		line2d.add_point(Vector2(0, 0))
 		
-func _process(delta):
+func _process(_delta):
 	var curr = Vector2.ZERO
 	var velocity = Vector2.RIGHT * 10
 	var factor = 12
