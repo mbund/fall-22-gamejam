@@ -23,11 +23,11 @@ _global_script_class_icons={
 config/name="fall-22-gamejam"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0")
-config/icon="res://icon.svg"
 
 [autoload]
 
 Globulars="*res://globulars.gd"
+
 [display]
 
 window/defaults/default_clear_color=Color(0, 0, 0, 1)

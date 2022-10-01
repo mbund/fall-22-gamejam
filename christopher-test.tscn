@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://space.jpg" id="1_4rffp"]
-[ext_resource type="Texture2D" uid="uid://cunfbyqjrkumk" path="res://black.png" id="2_bc5qs"]
-[ext_resource type="Material" uid="uid://bfugsbpmsniom" path="res://black-hole-standard.tres" id="2_jgif0"]
+[ext_resource type="Texture2D" uid="uid://dhba67kugy4gg" path="res://environment/space.jpg" id="1_4rffp"]
+[ext_resource type="Texture2D" path="res://environment/blackhole/black.png" id="2_bc5qs"]
+[ext_resource type="Material" path="res://black-hole-standard.tres" id="2_jgif0"]
 [ext_resource type="PackedScene" uid="uid://4ayds7oluln3" path="res://enemy/enemy_ship_13.tscn" id="4_s50h2"]
 
 [node name="Node2d" type="Node2D"]

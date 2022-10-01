@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dctvga5rrj8ye"]
 
-[ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="1_somtp"]
+[ext_resource type="Texture2D" uid="uid://v6dwv0508brj" path="res://assets/star.png" id="1_3d5qp"]
 
 [sub_resource type="Curve" id="Curve_v4ka8"]
 _data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(0.5, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
@@ -23,5 +23,5 @@ scale_curve = SubResource("CurveTexture_yhpoo")
 [node name="GpuParticles2d" type="GPUParticles2D"]
 scale = Vector2(10, 10)
 process_material = SubResource("ParticleProcessMaterial_e1cku")
-texture = ExtResource("1_somtp")
+texture = ExtResource("1_3d5qp")
 metadata/_edit_lock_ = true
