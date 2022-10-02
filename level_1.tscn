@@ -11,7 +11,8 @@
 script = ExtResource("1_y4phm")
 
 [node name="rectangularborder" parent="." instance=ExtResource("2_wlmkl")]
-size = Vector2(8000, 1000)
+size = Vector2(3520, 1950)
+topleft = Vector2(-1850, -970)
 
 [node name="starfield" parent="." instance=ExtResource("2_djijc")]
 

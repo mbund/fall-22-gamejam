@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdo0wa1x0qj01"]
+[gd_scene load_steps=9 format=3 uid="uid://cdo0wa1x0qj01"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_a5gni"]
 [ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="2_m3ik1"]
@@ -6,18 +6,10 @@
 [ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="4_710uo"]
 [ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="5_2yjv4"]
 [ext_resource type="PackedScene" uid="uid://cjekqwyqierwa" path="res://environment/blackhole/whitehole.tscn" id="6_r2v80"]
+[ext_resource type="PackedScene" uid="uid://cnupsgxmntlj" path="res://border/rectangularborder.tscn" id="7_0006q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxsl7"]
 size = Vector2(4486.5, 4815.12)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxalm"]
-size = Vector2(24638, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_353gi"]
-size = Vector2(24632, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjve4"]
-size = Vector2(143, 4000)
 
 [node name="Node2d" type="Node2D"]
 script = ExtResource("1_a5gni")
@@ -148,23 +140,8 @@ collision_layer = 32
 position = Vector2(21293, 153)
 shape = SubResource("RectangleShape2D_dxsl7")
 
-[node name="StaticBody2d" type="StaticBody2D" parent="."]
-collision_layer = 32
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="StaticBody2d"]
-position = Vector2(9819, -1500)
-shape = SubResource("RectangleShape2D_rxalm")
-
-[node name="CollisionShape2d2" type="CollisionShape2D" parent="StaticBody2d"]
-position = Vector2(9816, 1500)
-shape = SubResource("RectangleShape2D_353gi")
-
-[node name="CollisionShape2d3" type="CollisionShape2D" parent="StaticBody2d"]
-position = Vector2(-2500, 0)
-shape = SubResource("RectangleShape2D_mjve4")
-
-[node name="CollisionShape2d4" type="CollisionShape2D" parent="StaticBody2d"]
-position = Vector2(22125, 0)
-shape = SubResource("RectangleShape2D_mjve4")
+[node name="rectangularborder" parent="." instance=ExtResource("7_0006q")]
+size = Vector2(24440, 2970)
+topleft = Vector2(-2400, -1450)
 
 [connection signal="body_entered" from="end_zone" to="." method="_on_end_zone_body_entered"]

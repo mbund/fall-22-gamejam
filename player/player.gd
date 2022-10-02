@@ -63,14 +63,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-
-	
-func die(is_blackhole=false):
-	if not is_blackhole:
-		var explosion = explosion_scene.instantiate();
-		explosion.global_position = self.global_position;
-		explosion.scale = Vector2(9, 9);
-		add_sibling(explosion);
+func die():
+	var explosion = explosion_scene.instantiate();
+	explosion.global_position = self.global_position;
+	explosion.scale = Vector2(9, 9);
+	add_sibling(explosion);
 	Globulars.player = null
 	queue_free()
 	Globulars.player_death.emit()

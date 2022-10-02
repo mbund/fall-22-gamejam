@@ -14,3 +14,4 @@ func _ready():
 func _process(_delta):
 	if !has_node("EnemyShip1"):
 		SceneTransition.change_scene("res://level_2.tscn")
+		set_process(false)
