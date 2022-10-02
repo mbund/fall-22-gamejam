@@ -1,2 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
+Godot_v4.0-beta2_linux.x86_64
+Godot_v4.0-beta2_win64.exe
+Godot.app/
