@@ -8,9 +8,11 @@ size = Vector2(1000, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68rr6"]
 shader = ExtResource("2_v1x8j")
-shader_parameter/size = null
+shader_parameter/scalex = null
+shader_parameter/t = null
 
 [node name="Area2d" type="Area2D"]
+scale = Vector2(2.58, 1)
 script = ExtResource("1_qapqo")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
@@ -22,3 +24,4 @@ offset_left = -500.0
 offset_top = -5.0
 offset_right = 500.0
 offset_bottom = 5.0
+metadata/_edit_use_anchors_ = true
