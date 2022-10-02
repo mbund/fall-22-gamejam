@@ -55,7 +55,7 @@ playing = true
 position = Vector2(35, -37)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 1.2
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
