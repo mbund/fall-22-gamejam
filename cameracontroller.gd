@@ -4,13 +4,17 @@ var shake_amount = 0
 var default_offset = offset
 # var tween: Tween
 var shaking = false
+var lock_position = null
 
 func _ready():
 	Globulars.camera = self
-	
+
+
 
 func _physics_process(delta):
-	if Globulars.get("player") != null:
+	if lock_position != null:
+		global_position = lock_position
+	elif Globulars.get("player") != null:
 		global_position += (Globulars.player.global_position - global_position) / 8
 
 	if shaking:

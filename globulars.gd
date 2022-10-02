@@ -8,6 +8,7 @@ var camera
 var blackholes: Array[Blackhole]
 var lives: int
 var player_spawn_timer = null
+var laser_sound_allowed = true
 
 signal player_death
 

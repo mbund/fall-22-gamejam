@@ -5,6 +5,14 @@ var speed: float = 1000;
 
 @onready var ImpactSoundScene = load("res://impact_sound.tscn")
 
+func _ready():
+	if Globulars.laser_sound_allowed:
+		Globulars.laser_sound_allowed = false
+		$ShootSound.play()
+		await get_tree().create_timer(0.01).timeout
+		Globulars.laser_sound_allowed = true
+		
+
 func _physics_process(delta):
 	velocity = Vector2(speed, 0).rotated(self.rotation)
 	# very janky solution to make black holes destroy lasers

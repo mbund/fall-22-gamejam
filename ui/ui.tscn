@@ -26,6 +26,7 @@ offset_right = 210.0
 offset_bottom = 74.0
 
 [node name="Ship1" type="TextureRect" parent="MarginContainer/LifeContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2i(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
@@ -34,6 +35,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Ship2" type="TextureRect" parent="MarginContainer/LifeContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2i(64, 64)
 offset_left = 68.0
 offset_right = 132.0
@@ -43,6 +45,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Ship3" type="TextureRect" parent="MarginContainer/LifeContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2i(64, 64)
 offset_left = 136.0
 offset_right = 200.0

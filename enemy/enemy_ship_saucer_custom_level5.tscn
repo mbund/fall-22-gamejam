@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://4lteby64bjdy"]
+
+[ext_resource type="PackedScene" uid="uid://d147gi367cq2n" path="res://enemy/enemy_ship_saucer.tscn" id="1_mcseo"]
+[ext_resource type="Script" path="res://enemy/enemy_ship_saucer_custom_level5.gd" id="2_s55sm"]
+
+[node name="EnemyShipSaucer" instance=ExtResource("1_mcseo")]
+script = ExtResource("2_s55sm")
