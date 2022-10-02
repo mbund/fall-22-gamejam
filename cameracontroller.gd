@@ -9,7 +9,7 @@ func _ready():
 	Globulars.camera = self
 	
 
-func _process(delta):
+func _physics_process(delta):
 	if Globulars.player:
 		global_position += (Globulars.player.global_position - global_position) / 8
 

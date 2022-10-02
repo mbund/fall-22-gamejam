@@ -18,7 +18,7 @@ var health = 1;
 func _ready():
 	Globulars.player = self
 	
-func _process(delta):
+func _physics_process(delta):
 	velocity += Globulars.calculate_gravity(global_position)
 	
 	if Input.is_action_pressed("accelerate"):
