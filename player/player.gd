@@ -14,9 +14,12 @@ var continuouslaser: ContinuousLaser
 
 var health = 1;
 
+var invulnerable = true;
 
 func _ready():
 	Globulars.player = self
+	await get_tree().create_timer(5.0).timeout
+	invulnerable = false;
 	
 func _physics_process(delta):
 	velocity += Globulars.calculate_gravity(global_position)
@@ -64,6 +67,9 @@ func _physics_process(delta):
 
 
 func die():
+	if invulnerable:
+		health = 1
+		return
 	var explosion = explosion_scene.instantiate();
 	explosion.global_position = self.global_position;
 	explosion.scale = Vector2(9, 9);
