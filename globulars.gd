@@ -6,7 +6,7 @@ var player: Player
 var world: Node
 var camera
 var blackholes: Array[Blackhole]
-var lives: int = 3
+var lives: int
 
 signal player_death
 
@@ -17,7 +17,11 @@ func calculate_gravity(pos: Vector2, stop_at_blackhole=false) -> Vector2:
 		gravity += blackhole.gravity_strength * (r.normalized() / r.length_squared())
 	return gravity
 
+func reset():
+	lives = 3
+
 func _ready():
+	reset()
 	player_death.connect(func():
 		if lives == 0:
 			SceneTransition.change_scene("res://LossScreen.tscn")

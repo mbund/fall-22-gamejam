@@ -1,20 +1,28 @@
-[gd_scene format=3 uid="uid://bh3v76akoiv8y"]
+[gd_scene load_steps=5 format=3 uid="uid://bh3v76akoiv8y"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
+[ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="1_2pyd2"]
+[ext_resource type="Script" path="res://LossScreen.gd" id="1_ealyw"]
+[ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="3_33sxi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sj08g"]
+font = ExtResource("3_33sxi")
+font_size = 110
+
+[node name="Node2d" type="Node2D"]
+script = ExtResource("1_ealyw")
+
+[node name="starfield" parent="." instance=ExtResource("1_2pyd2")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 400
-text = "L"
+size_flags_vertical = 1
+text = "You Lose"
+label_settings = SubResource("LabelSettings_sj08g")
 horizontal_alignment = 1
 vertical_alignment = 1
