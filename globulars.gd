@@ -4,6 +4,7 @@ extends Node
 
 var player: Player
 var world: Node
+var camera
 var blackholes: Array[Blackhole]
 var lives: int = 3
 
@@ -27,5 +28,3 @@ func _ready():
 			player.global_position = world.get_node("player_spawn").global_position
 		world.add_child(player)
 	)
-	
-

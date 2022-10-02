@@ -9,4 +9,3 @@ func _ready():
 	var player = player_scene.instantiate();
 	player.global_position = $player_spawn.global_position;
 	add_child(player)
-
