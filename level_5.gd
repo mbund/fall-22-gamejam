@@ -17,7 +17,7 @@ func _ready():
 	add_child(player)
 	timer.start()
 	timer.timeout.connect(func():
-		SceneTransition.change_scene("res://WinScreen.tscn")
+		SceneTransition.change_scene("res://level_6.tscn")
 	)
 	Globulars.player_death.connect(func():
 		timer.start()

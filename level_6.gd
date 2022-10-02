@@ -17,6 +17,7 @@ var e6_name;
 
 func _ready():
 	Globulars.world = self
+	Globulars.current_level = "res://level_6.tscn"
 	var player = player_scene.instantiate();
 	player.global_position = $player_spawn.global_position
 	get_viewport().get_camera_2d().global_position = player.global_position
@@ -64,3 +65,4 @@ func _process(delta):
 				send_wave_3();
 			elif !has_node(e5_name) && !has_node(e6_name):
 				SceneTransition.change_scene("level_7.tscn")
+				set_process(false)

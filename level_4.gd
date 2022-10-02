@@ -6,6 +6,7 @@ var player_scene = load("res://player/player.tscn")
 
 func _ready():
 	Globulars.world = self
+	Globulars.current_level = "res://level_4.tscn"
 	var player = player_scene.instantiate();
 	player.global_position = $player_spawn.global_position
 	get_viewport().get_camera_2d().global_position = player.global_position
