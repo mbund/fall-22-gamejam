@@ -5,6 +5,7 @@ extends Area2D
 var time = 0.0
 
 func _ready():
+	$ColorRect.material = $ColorRect.material.duplicate()
 	$ColorRect.material.set_shader_parameter("scalex", scale.x)
 
 func _process(delta):

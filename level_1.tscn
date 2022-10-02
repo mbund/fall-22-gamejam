@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://d28xu3lv0eh30"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_y4phm"]
-[ext_resource type="PackedScene" uid="uid://mwi44axxx6j" path="res://border/border.tscn" id="2_c588y"]
 [ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="2_djijc"]
+[ext_resource type="PackedScene" uid="uid://cnupsgxmntlj" path="res://border/rectangularborder.tscn" id="2_wlmkl"]
 [ext_resource type="PackedScene" uid="uid://c61p253ginsms" path="res://enemy/enemy_ship_1_intro.tscn" id="3_c23s6"]
 [ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="4_vptse"]
 [ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="5_5r4wa"]
@@ -10,28 +10,8 @@
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_y4phm")
 
-[node name="border" parent="." instance=ExtResource("2_c588y")]
-position = Vector2(0, -1500)
-scale = Vector2(3, 1)
-setvelocity = Vector2(0, 300)
-
-[node name="border2" parent="." instance=ExtResource("2_c588y")]
-position = Vector2(-1500, 0)
-rotation = -1.5708
-scale = Vector2(3, 1)
-setvelocity = Vector2(300, 0)
-
-[node name="border3" parent="." instance=ExtResource("2_c588y")]
-position = Vector2(0, 1500)
-rotation = 3.14159
-scale = Vector2(3, 1)
-setvelocity = Vector2(0, -300)
-
-[node name="border4" parent="." instance=ExtResource("2_c588y")]
-position = Vector2(1500, 0)
-rotation = 1.5708
-scale = Vector2(3, 1)
-setvelocity = Vector2(-300, 0)
+[node name="rectangularborder" parent="." instance=ExtResource("2_wlmkl")]
+size = Vector2(8000, 1000)
 
 [node name="starfield" parent="." instance=ExtResource("2_djijc")]
 
