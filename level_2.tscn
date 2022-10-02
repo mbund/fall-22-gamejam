@@ -19,6 +19,7 @@ script = ExtResource("1_a5gni")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ui" parent="CanvasLayer" instance=ExtResource("3_2pooo")]
+metadata/_edit_use_anchors_ = true
 
 [node name="player_spawn" type="Marker2D" parent="."]
 position = Vector2(-1310, 0)
@@ -35,6 +36,7 @@ text = "many dangers lurk
 outer space"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="."]
 offset_left = -431.0
@@ -47,6 +49,7 @@ text = "but the most dangerous
 is perhaps..."
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 760.0
@@ -58,6 +61,7 @@ theme_override_font_sizes/font_size = 36
 text = "The black hole"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="."]
 offset_left = 2201.0
