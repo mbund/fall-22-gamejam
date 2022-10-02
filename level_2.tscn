@@ -1,0 +1,170 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdo0wa1x0qj01"]
+
+[ext_resource type="Script" path="res://level_2.gd" id="1_a5gni"]
+[ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="2_m3ik1"]
+[ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="3_2pooo"]
+[ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="4_710uo"]
+[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="5_2yjv4"]
+[ext_resource type="PackedScene" uid="uid://cjekqwyqierwa" path="res://environment/blackhole/whitehole.tscn" id="6_r2v80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxsl7"]
+size = Vector2(4486.5, 4815.12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxalm"]
+size = Vector2(24638, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_353gi"]
+size = Vector2(24632, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjve4"]
+size = Vector2(143, 4000)
+
+[node name="Node2d" type="Node2D"]
+script = ExtResource("1_a5gni")
+
+[node name="starfield" parent="." instance=ExtResource("2_m3ik1")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui" parent="CanvasLayer" instance=ExtResource("3_2pooo")]
+
+[node name="player_spawn" type="Marker2D" parent="."]
+position = Vector2(-1310, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1223.0
+offset_top = -210.0
+offset_right = -355.0
+offset_bottom = -66.0
+theme_override_fonts/font = ExtResource("4_710uo")
+theme_override_font_sizes/font_size = 36
+text = "many dangers lurk
+ in  the depths of 
+outer space"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -431.0
+offset_top = 16.0
+offset_right = 437.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("4_710uo")
+theme_override_font_sizes/font_size = 36
+text = "but the most dangerous
+is perhaps..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 760.0
+offset_top = -370.0
+offset_right = 1628.0
+offset_bottom = -226.0
+theme_override_fonts/font = ExtResource("4_710uo")
+theme_override_font_sizes/font_size = 36
+text = "The black hole"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 2201.0
+offset_top = -122.0
+offset_right = 3069.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("4_710uo")
+theme_override_font_sizes/font_size = 36
+text = "Watch out for white holes as well"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 19126.0
+offset_top = -146.0
+offset_right = 20120.0
+offset_bottom = -2.0
+theme_override_fonts/font = ExtResource("4_710uo")
+theme_override_font_sizes/font_size = 36
+text = "Congratulations
+You made it"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blackhole" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(1200, 0)
+
+[node name="blackhole4" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(11311, 754)
+
+[node name="blackhole7" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(11009, -1222)
+
+[node name="blackhole8" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(8157, -1353)
+
+[node name="blackhole9" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(9276, 1328)
+
+[node name="blackhole10" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(16846, 1167)
+
+[node name="blackhole5" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(14207, 1362)
+
+[node name="blackhole6" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(16063, 322)
+
+[node name="blackhole2" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(6242, -851)
+
+[node name="blackhole3" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(7080, 1168)
+
+[node name="whitehole" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(3486, -439)
+
+[node name="whitehole2" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(3487, 535)
+
+[node name="whitehole7" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(6063, 759)
+
+[node name="whitehole3" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(8906, -3)
+
+[node name="whitehole4" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(13796, -866)
+
+[node name="whitehole5" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(17178, -556)
+
+[node name="whitehole6" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(16879, -1212)
+
+[node name="end_zone" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="end_zone"]
+position = Vector2(19951.2, -40)
+shape = SubResource("RectangleShape2D_dxsl7")
+
+[node name="StaticBody2d" type="StaticBody2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(9819, -1500)
+shape = SubResource("RectangleShape2D_rxalm")
+
+[node name="CollisionShape2d2" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(9816, 1500)
+shape = SubResource("RectangleShape2D_353gi")
+
+[node name="CollisionShape2d3" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(-2500, 0)
+shape = SubResource("RectangleShape2D_mjve4")
+
+[node name="CollisionShape2d4" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(22125, 0)
+shape = SubResource("RectangleShape2D_mjve4")
+
+[connection signal="body_entered" from="end_zone" to="." method="_on_end_zone_body_entered"]

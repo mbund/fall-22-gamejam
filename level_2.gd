@@ -11,6 +11,5 @@ func _ready():
 	get_viewport().get_camera_2d().global_position = player.global_position
 	add_child(player)
 
-func _process(_delta):
-	if !has_node("EnemyShip1"):
-		SceneTransition.change_scene("res://level_2.tscn")
+func _on_end_zone_body_entered(body):
+	SceneTransition.change_scene("res://WinScreen.tres")

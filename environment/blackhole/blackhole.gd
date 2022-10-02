@@ -6,6 +6,9 @@ extends Sprite2D
 func _ready():
 	Globulars.blackholes.append(self)
 
+func _exit_tree():
+	Globulars.blackholes.remove_at(Globulars.blackholes.find(self))
+
 
 func _on_area_2d_body_entered(body):
 	if body is Player:

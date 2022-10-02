@@ -4,6 +4,3 @@ extends AnimationPlayer
 
 func _ready():
 	set_autoplay(["pulse-in", "pulse-out"][animation])
-
-func _process(delta):
-	pass
