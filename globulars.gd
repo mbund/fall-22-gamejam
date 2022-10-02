@@ -7,6 +7,7 @@ var world: Node
 var camera
 var blackholes: Array[Blackhole]
 var lives: int
+var player_spawn_timer = null
 
 signal player_death
 
@@ -27,8 +28,9 @@ func _ready():
 			SceneTransition.change_scene("res://LossScreen.tscn")
 			return
 		lives -= 1
+		var old_world = world
 		await get_tree().create_timer(1.0).timeout
-		if world.get_node("player_spawn") != null:
+		if world == old_world and world.get_node("player_spawn") != null:
 			player = PlayerScene.instantiate()
 			player.global_position = world.get_node("player_spawn").global_position
 		world.add_child(player)
