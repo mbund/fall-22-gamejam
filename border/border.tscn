@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://mwi44axxx6j"]
+[gd_scene load_steps=5 format=3 uid="uid://mwi44axxx6j"]
 
 [ext_resource type="Script" path="res://border/border.gd" id="1_qapqo"]
+[ext_resource type="Shader" path="res://border/border.gdshader" id="2_v1x8j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt1p5"]
 size = Vector2(1000, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68rr6"]
+shader = ExtResource("2_v1x8j")
+shader_parameter/size = null
 
 [node name="Area2d" type="Area2D"]
 script = ExtResource("1_qapqo")
@@ -12,6 +17,7 @@ script = ExtResource("1_qapqo")
 shape = SubResource("RectangleShape2D_wt1p5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_68rr6")
 offset_left = -500.0
 offset_top = -5.0
 offset_right = 500.0
