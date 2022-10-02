@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://csguy155s6jvn"]
+
+[ext_resource type="Script" path="res://level_6.gd" id="1_dmdnl"]
+[ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="1_ms2gj"]
+[ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="2_nmmrq"]
+[ext_resource type="PackedScene" uid="uid://cnupsgxmntlj" path="res://border/rectangularborder.tscn" id="3_sk8wu"]
+[ext_resource type="PackedScene" uid="uid://cncm06b241qss" path="res://enemy/enemy_ship_1.tscn" id="4_kmbd0"]
+[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="6_natnl"]
+[ext_resource type="PackedScene" uid="uid://cjekqwyqierwa" path="res://environment/blackhole/whitehole.tscn" id="7_6t8ce"]
+
+[node name="level6" type="Node2D"]
+script = ExtResource("1_dmdnl")
+
+[node name="starfield" parent="." instance=ExtResource("1_ms2gj")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -3000.0
+offset_top = -3000.0
+offset_right = 3000.0
+offset_bottom = 3000.0
+color = Color(1, 1, 1, 0.211765)
+
+[node name="player_spawn" type="Marker2D" parent="."]
+position = Vector2(-1728, -700)
+
+[node name="rectangularborder" parent="." instance=ExtResource("3_sk8wu")]
+size = Vector2(6000, 6000)
+topleft = Vector2(-3000, -3000)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui" parent="CanvasLayer" instance=ExtResource("2_nmmrq")]
+
+[node name="e1" parent="." instance=ExtResource("4_kmbd0")]
+position = Vector2(1674, -822)
+firing_randomness = 0.1
+firing_cone = 20.0
+speed = 150.0
+
+[node name="e2" parent="." instance=ExtResource("4_kmbd0")]
+position = Vector2(-266, 1684)
+firing_randomness = 0.1
+firing_cone = 20.0
+speed = 150.0
+
+[node name="e3_spawn" type="Marker2D" parent="."]
+position = Vector2(-5686, 2660)
+
+[node name="e4_spawn" type="Marker2D" parent="."]
+position = Vector2(7297, -1832)
+
+[node name="blackhole2" parent="." instance=ExtResource("6_natnl")]
+position = Vector2(2070, 2489)
+scale = Vector2(1, 1.0404)
+
+[node name="blackhole" parent="." instance=ExtResource("6_natnl")]
+position = Vector2(-1803, 1892)
+
+[node name="whitehole" parent="." instance=ExtResource("7_6t8ce")]
+position = Vector2(140, -2108)
+
+[node name="e5_spawn" type="Marker2D" parent="."]
+position = Vector2(-4598, -2838)
+
+[node name="e6_spawn" type="Marker2D" parent="."]
+position = Vector2(7489, 2460)

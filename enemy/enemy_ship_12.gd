@@ -6,6 +6,7 @@ var laser_scene = preload("res://enemy/laser.tscn");
 var target: Marker2D;
 @onready
 var explosion_scene = load("res://explosion.tscn")
+@export var speed = 100;
 
 var health = 12;
 
@@ -16,6 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Globulars.player != null:
+		target = Globulars.player.get_node("target")
 	if target == null:
 		return
 	var target_vector = target.global_position - global_position;
@@ -26,8 +29,11 @@ func _process(delta):
 		explosion.global_position = self.global_position;
 		explosion.scale = Vector2(6, 6);
 		add_sibling(explosion);
-	if Globulars.player != null:
-		target = Globulars.player.get_node("target")
+
+	
+	if(target_vector.length() > speed):
+		velocity = Vector2(speed, 0).rotated(self.rotation)
+		move_and_slide()
 
 
 

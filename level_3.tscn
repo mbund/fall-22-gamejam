@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ppwvmgwyj62s"]
+[gd_scene load_steps=9 format=3 uid="uid://ppwvmgwyj62s"]
 
 [ext_resource type="Script" path="res://level_3.gd" id="1_7hwi6"]
 [ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="1_ntxhg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="6_fl5j1"]
 [ext_resource type="PackedScene" uid="uid://cnupsgxmntlj" path="res://border/rectangularborder.tscn" id="6_lmmtl"]
 [ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="7_qt5a5"]
+[ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="8_0w528"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_7hwi6")
@@ -50,3 +51,5 @@ you know what to do"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="ui" parent="." instance=ExtResource("8_0w528")]
