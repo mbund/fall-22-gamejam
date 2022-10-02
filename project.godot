@@ -91,3 +91,7 @@ fire={
 [physics]
 
 2d/default_gravity=0.0
+
+[xr]
+
+shaders/enabled=true

@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://5yd8v5vk6k1u"]
+
+[ext_resource type="Script" path="res://level_4.gd" id="1_2jthf"]
+[ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="2_m3ik1"]
+[ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="3_2pooo"]
+[ext_resource type="FontFile" uid="uid://l7icxmqem2hm" path="res://ui/assets/font/ethnocentric rg.otf" id="4_710uo"]
+[ext_resource type="PackedScene" uid="uid://cdajpo3p4a553" path="res://environment/blackhole/blackhole.tscn" id="5_2yjv4"]
+[ext_resource type="PackedScene" uid="uid://cjekqwyqierwa" path="res://environment/blackhole/whitehole.tscn" id="6_r2v80"]
+[ext_resource type="PackedScene" uid="uid://cnupsgxmntlj" path="res://border/rectangularborder.tscn" id="7_0006q"]
+[ext_resource type="PackedScene" uid="uid://cncm06b241qss" path="res://enemy/enemy_ship_1.tscn" id="8_dht85"]
+[ext_resource type="PackedScene" uid="uid://4ayds7oluln3" path="res://enemy/enemy_ship_13.tscn" id="9_hdpus"]
+
+[node name="Node2d" type="Node2D"]
+script = ExtResource("1_2jthf")
+
+[node name="starfield" parent="." instance=ExtResource("2_m3ik1")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui" parent="CanvasLayer" instance=ExtResource("3_2pooo")]
+
+[node name="player_spawn" type="Marker2D" parent="."]
+position = Vector2(-1310, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1223.0
+offset_top = -210.0
+offset_right = -355.0
+offset_bottom = -66.0
+theme_override_fonts/font = ExtResource("4_710uo")
+theme_override_font_sizes/font_size = 36
+text = "eliminate the hostiles"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blackhole" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(1289, 593)
+gravity_strength = 300000
+
+[node name="whitehole3" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(973, -591)
+gravity_strength = -300000
+
+[node name="blackhole2" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(4309, -538)
+gravity_strength = 500000
+
+[node name="blackhole3" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(6043, 445)
+gravity_strength = 500000
+
+[node name="blackhole4" parent="." instance=ExtResource("5_2yjv4")]
+position = Vector2(9389, 413)
+gravity_strength = 500000
+
+[node name="whitehole4" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(4358, 673)
+gravity_strength = -600000
+
+[node name="whitehole5" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(6686, -471)
+gravity_strength = -600000
+
+[node name="whitehole7" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(8788, -471)
+gravity_strength = -600000
+
+[node name="whitehole8" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(10667, -484)
+gravity_strength = -600000
+
+[node name="whitehole6" parent="." instance=ExtResource("6_r2v80")]
+position = Vector2(2987, -274)
+gravity_strength = -600000
+
+[node name="rectangularborder" parent="." instance=ExtResource("7_0006q")]
+size = Vector2(14000, 2970)
+topleft = Vector2(-2400, -1450)
+
+[node name="EnemyShip2" parent="." instance=ExtResource("8_dht85")]
+position = Vector2(1627, -134)
+firing_randomness = 0.03
+firing_cone = 0.1
+speed = 0.0
+
+[node name="EnemyShip3" parent="." instance=ExtResource("8_dht85")]
+position = Vector2(1635, 177)
+firing_randomness = 0.03
+firing_cone = 0.1
+speed = 0.0
+
+[node name="EnemyShip6" parent="." instance=ExtResource("8_dht85")]
+position = Vector2(1183, -1079)
+firing_randomness = 0.03
+firing_cone = 0.1
+speed = 200.0
+
+[node name="EnemyShip14" parent="." instance=ExtResource("9_hdpus")]
+position = Vector2(5437, -414)
+firing_randomness = 0.03
+turning_speed = 0.1
+speed = 300.0
+
+[node name="EnemyShip15" parent="." instance=ExtResource("9_hdpus")]
+position = Vector2(7712, 457)
+firing_randomness = 0.03
+turning_speed = 0.15
+speed = 350.0
+
+[node name="EnemyShip16" parent="." instance=ExtResource("9_hdpus")]
+position = Vector2(9973, -375)
+firing_randomness = 0.03
+turning_speed = 0.05
+speed = 200.0
