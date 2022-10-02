@@ -145,7 +145,7 @@ position = Vector2(16879, -1212)
 collision_layer = 32
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="end_zone"]
-position = Vector2(19951.2, -40)
+position = Vector2(21293, 153)
 shape = SubResource("RectangleShape2D_dxsl7")
 
 [node name="StaticBody2d" type="StaticBody2D" parent="."]

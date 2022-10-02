@@ -10,7 +10,7 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if Globulars.player:
+	if Globulars.get("player") != null:
 		global_position += (Globulars.player.global_position - global_position) / 8
 
 	if shaking:
