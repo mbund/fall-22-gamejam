@@ -40,6 +40,7 @@ config/features=PackedStringArray("4.0")
 
 Globulars="*res://globulars.gd"
 SceneTransition="*res://SceneTransition.tscn"
+Audio="*res://audio.tscn"
 
 [display]
 
