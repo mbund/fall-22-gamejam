@@ -42,7 +42,7 @@ func _process(delta):
 	if Input.is_action_pressed("right"):
 		rotate(rotation_strength * delta)
 	if Input.is_action_pressed("fire") && $GunCooldown.is_stopped():
-		Globulars.camera.shake(1000, 0.1 , 1200) 
+		Globulars.camera.shake(500, 0.1 , 1200) 
 		var laser: CharacterBody2D = laser_scene.instantiate();
 		laser.rotation = rotation;
 		laser.global_position = $LeftGun.global_position;

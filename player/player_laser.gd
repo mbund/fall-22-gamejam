@@ -16,6 +16,12 @@ func _physics_process(delta):
 	if collision != null:
 		if collision.get_collider().get("health") != null:
 			collision.get_collider().set("health", collision.get_collider().get("health") - 1)
+			if collision.get_collider().modulate.a == 1.0:
+				collision.get_collider().modulate.a = 0.5
+				get_tree().create_timer(0.25).timeout.connect(func():
+					if collision.get_collider():
+						collision.get_collider().modulate.a = 1.0
+				)
 		add_sibling(ImpactSoundScene.instantiate())
 		queue_free()
 		
