@@ -22,7 +22,7 @@ func _physics_process(delta):
 	self.rotation = velocity.angle()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision != null:
-		if collision.get_collider().get("health") != null:
+		if !collision.get_collider().get("invulnerable") and collision.get_collider().get("health") != null:
 			collision.get_collider().set("health", collision.get_collider().get("health") - 1)
 
 		queue_free()
