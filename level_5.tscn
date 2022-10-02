@@ -42,13 +42,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/VBoxContainer"]
-layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 39.0
 theme_override_constants/margin_top = 15
 
 [node name="Label" type="Label" parent="CanvasLayer2/VBoxContainer/MarginContainer"]
-layout_mode = 2
 offset_top = 15.0
 offset_right = 1152.0
 offset_bottom = 39.0

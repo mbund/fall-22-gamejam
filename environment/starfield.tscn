@@ -15,7 +15,7 @@ curve = SubResource("Curve_v4ka8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e1cku"]
 emission_shape = 3
-emission_box_extents = Vector3(1000, 1000, 0)
+emission_box_extents = Vector3(2000, 1000, 0)
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
 orbit_velocity_min = 0.0
@@ -38,7 +38,7 @@ zoom = Vector2(0.33, 0.33)
 script = ExtResource("2_11lgp")
 
 [node name="Starfield" type="GPUParticles2D" parent="."]
-amount = 200
+amount = 400
 visibility_rect = Rect2(-1000, -1000, 4000, 2000)
 process_material = SubResource("ParticleProcessMaterial_e1cku")
 texture = ExtResource("1_3d5qp")
