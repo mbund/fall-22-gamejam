@@ -12,4 +12,4 @@ func _ready():
 	add_child(player)
 
 func _on_end_zone_body_entered(body):
-	SceneTransition.change_scene("res://WinScreen.tres")
+	SceneTransition.change_scene("res://WinScreen.tscn")
