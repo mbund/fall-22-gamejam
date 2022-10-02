@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="fall-22-gamejam"
-run/main_scene="res://environment/starfield.tscn"
+run/main_scene="res://mainmenu/menu.tscn"
 config/features=PackedStringArray("4.0")
 
 [autoload]
