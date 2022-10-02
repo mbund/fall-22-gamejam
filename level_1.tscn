@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d28xu3lv0eh30"]
+[gd_scene load_steps=10 format=3 uid="uid://d28xu3lv0eh30"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_y4phm"]
+[ext_resource type="PackedScene" uid="uid://mwi44axxx6j" path="res://border/border.tscn" id="2_c588y"]
 [ext_resource type="PackedScene" uid="uid://ry5ablht60rh" path="res://environment/starfield.tscn" id="2_djijc"]
 [ext_resource type="PackedScene" uid="uid://c61p253ginsms" path="res://enemy/enemy_ship_1_intro.tscn" id="3_c23s6"]
 [ext_resource type="PackedScene" uid="uid://620nw864h08l" path="res://ui/ui.tscn" id="4_vptse"]
@@ -17,6 +18,9 @@ size = Vector2(100, 3000)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_y4phm")
+
+[node name="border" parent="." instance=ExtResource("2_c588y")]
+position = Vector2(-112, -364)
 
 [node name="StaticBody2d" type="StaticBody2D" parent="."]
 collision_layer = 32
