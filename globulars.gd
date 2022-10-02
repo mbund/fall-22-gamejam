@@ -9,6 +9,7 @@ var blackholes: Array[Blackhole]
 var lives: int
 var player_spawn_timer = null
 var laser_sound_allowed = true
+var current_level = "res://level_1.tscn"
 
 signal player_death
 
@@ -21,6 +22,9 @@ func calculate_gravity(pos: Vector2, stop_at_blackhole=false) -> Vector2:
 
 func reset():
 	lives = 3
+	get_viewport().get_camera_2d().zoom = Vector2(0.5, 0.5)
+	if camera:
+		camera.lock_position = null
 
 func _ready():
 	reset()

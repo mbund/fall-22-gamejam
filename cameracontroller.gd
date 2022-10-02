@@ -12,10 +12,14 @@ func _ready():
 
 
 func _physics_process(delta):
+	var pos
 	if lock_position != null:
-		global_position = lock_position
+		pos = lock_position
 	elif Globulars.get("player") != null:
-		global_position += (Globulars.player.global_position - global_position) / 8
+		pos = Globulars.player.global_position
+	else:
+		pos = global_position
+	global_position += (pos - global_position) / 8
 
 	if shaking:
 		offset = Vector2(randf_range(-shake_amount, shake_amount), randf_range(-shake_amount, shake_amount)) * delta + default_offset

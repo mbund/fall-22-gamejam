@@ -19,7 +19,7 @@ script = ExtResource("1_71t5r")
 position = Vector2(800, 800)
 
 [node name="EnemyShipSaucer" parent="." instance=ExtResource("3_8fjew")]
-position = Vector2(-1250, -1250)
+position = Vector2(-1100, -1100)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

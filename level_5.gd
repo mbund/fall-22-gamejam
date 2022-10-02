@@ -10,6 +10,7 @@ func _ready():
 	get_viewport().get_camera_2d().zoom = Vector2(0.25, 0.25)
 	Globulars.camera.lock_position = Vector2(0,0)
 	Globulars.world = self
+	Globulars.current_level = "res://level_5.tscn"
 	var player = player_scene.instantiate();
 	player.global_position = $player_spawn.global_position
 	get_viewport().get_camera_2d().global_position = player.global_position

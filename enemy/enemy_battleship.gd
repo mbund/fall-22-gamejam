@@ -17,11 +17,27 @@ var health = 24;
 
 func _process(_delta):
 	if health <= 0:
-		queue_free();
-		var explosion = explosion_scene.instantiate();
+		set_process(false)
+		visible = false
+		var explosion
+		var time = .5
+		explosion = explosion_scene.instantiate();
 		explosion.global_position = self.global_position;
-		explosion.scale = Vector2(8, 8);
+		explosion.scale = Vector2(16, 16);
 		add_sibling(explosion);
+		await get_tree().create_timer(time).timeout
+		explosion = explosion_scene.instantiate();
+		explosion.global_position = self.global_position;
+		explosion.scale = Vector2(16, 16);
+		add_sibling(explosion);
+		await get_tree().create_timer(time).timeout
+		explosion = explosion_scene.instantiate();
+		explosion.global_position = self.global_position;
+		explosion.scale = Vector2(16, 16);
+		add_sibling(explosion);
+		await get_tree().create_timer(time).timeout
+		queue_free();
+		
 	if Globulars.player != null:
 		target = Globulars.player.get_node("target")
 
