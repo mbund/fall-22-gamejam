@@ -29,7 +29,7 @@ hue_variation_max = 0.06
 shader = ExtResource("2_crbpk")
 shader_parameter/pos = Vector2(-0.456, 0)
 
-[node name="main" type="Node"]
+[node name="starfield" type="Node"]
 script = ExtResource("1_gtqsc")
 
 [node name="Camera2d" type="Camera2D" parent="."]
